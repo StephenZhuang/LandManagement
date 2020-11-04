@@ -1,0 +1,696 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		77987BEC254C016100B18BF6 /* LandManagementApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77987BEB254C016100B18BF6 /* LandManagementApp.swift */; };
+		77987BEE254C016100B18BF6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77987BED254C016100B18BF6 /* ContentView.swift */; };
+		77987BF0254C016300B18BF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77987BEF254C016300B18BF6 /* Assets.xcassets */; };
+		77987BF3254C016300B18BF6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77987BF2254C016300B18BF6 /* Preview Assets.xcassets */; };
+		77987BFE254C016300B18BF6 /* LandManagementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77987BFD254C016300B18BF6 /* LandManagementTests.swift */; };
+		77987C09254C016300B18BF6 /* LandManagementUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77987C08254C016300B18BF6 /* LandManagementUITests.swift */; };
+		77987C31254C02BC00B18BF6 /* season.json in Resources */ = {isa = PBXBuildFile; fileRef = 77987C22254C02BC00B18BF6 /* season.json */; };
+		77987C32254C02BC00B18BF6 /* league.json in Resources */ = {isa = PBXBuildFile; fileRef = 77987C23254C02BC00B18BF6 /* league.json */; };
+		77987C33254C02BC00B18BF6 /* player.json in Resources */ = {isa = PBXBuildFile; fileRef = 77987C24254C02BC00B18BF6 /* player.json */; };
+		77987C34254C02BC00B18BF6 /* resource.json in Resources */ = {isa = PBXBuildFile; fileRef = 77987C25254C02BC00B18BF6 /* resource.json */; };
+		77987C35254C02BC00B18BF6 /* group.json in Resources */ = {isa = PBXBuildFile; fileRef = 77987C26254C02BC00B18BF6 /* group.json */; };
+		77987C36254C02BC00B18BF6 /* county.json in Resources */ = {isa = PBXBuildFile; fileRef = 77987C27254C02BC00B18BF6 /* county.json */; };
+		77987C37254C02BC00B18BF6 /* County.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77987C29254C02BC00B18BF6 /* County.swift */; };
+		77987C38254C02BC00B18BF6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77987C2A254C02BC00B18BF6 /* User.swift */; };
+		77987C39254C02BC00B18BF6 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77987C2B254C02BC00B18BF6 /* Resource.swift */; };
+		77987C3A254C02BC00B18BF6 /* Zone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77987C2C254C02BC00B18BF6 /* Zone.swift */; };
+		77987C3B254C02BC00B18BF6 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77987C2D254C02BC00B18BF6 /* Group.swift */; };
+		77987C3C254C02BC00B18BF6 /* League.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77987C2E254C02BC00B18BF6 /* League.swift */; };
+		77987C3D254C02BC00B18BF6 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77987C2F254C02BC00B18BF6 /* Player.swift */; };
+		77987C3E254C02BC00B18BF6 /* Season.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77987C30254C02BC00B18BF6 /* Season.swift */; };
+		77987C6A2552542100B18BF6 /* LeanCloud in Frameworks */ = {isa = PBXBuildFile; productRef = 77987C692552542100B18BF6 /* LeanCloud */; };
+		77987C6F2552973400B18BF6 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77987C6E2552973400B18BF6 /* LoginView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		77987BFA254C016300B18BF6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 77987BE0254C016100B18BF6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 77987BE7254C016100B18BF6;
+			remoteInfo = LandManagement;
+		};
+		77987C05254C016300B18BF6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 77987BE0254C016100B18BF6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 77987BE7254C016100B18BF6;
+			remoteInfo = LandManagement;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		77987BE8254C016100B18BF6 /* LandManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LandManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		77987BEB254C016100B18BF6 /* LandManagementApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandManagementApp.swift; sourceTree = "<group>"; };
+		77987BED254C016100B18BF6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		77987BEF254C016300B18BF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		77987BF2254C016300B18BF6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		77987BF4254C016300B18BF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		77987BF9254C016300B18BF6 /* LandManagementTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LandManagementTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		77987BFD254C016300B18BF6 /* LandManagementTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandManagementTests.swift; sourceTree = "<group>"; };
+		77987BFF254C016300B18BF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		77987C04254C016300B18BF6 /* LandManagementUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LandManagementUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		77987C08254C016300B18BF6 /* LandManagementUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandManagementUITests.swift; sourceTree = "<group>"; };
+		77987C0A254C016300B18BF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		77987C22254C02BC00B18BF6 /* season.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = season.json; sourceTree = "<group>"; };
+		77987C23254C02BC00B18BF6 /* league.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = league.json; sourceTree = "<group>"; };
+		77987C24254C02BC00B18BF6 /* player.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = player.json; sourceTree = "<group>"; };
+		77987C25254C02BC00B18BF6 /* resource.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = resource.json; sourceTree = "<group>"; };
+		77987C26254C02BC00B18BF6 /* group.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = group.json; sourceTree = "<group>"; };
+		77987C27254C02BC00B18BF6 /* county.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = county.json; sourceTree = "<group>"; };
+		77987C29254C02BC00B18BF6 /* County.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = County.swift; sourceTree = "<group>"; };
+		77987C2A254C02BC00B18BF6 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		77987C2B254C02BC00B18BF6 /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
+		77987C2C254C02BC00B18BF6 /* Zone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Zone.swift; sourceTree = "<group>"; };
+		77987C2D254C02BC00B18BF6 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		77987C2E254C02BC00B18BF6 /* League.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = League.swift; sourceTree = "<group>"; };
+		77987C2F254C02BC00B18BF6 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		77987C30254C02BC00B18BF6 /* Season.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Season.swift; sourceTree = "<group>"; };
+		77987C6E2552973400B18BF6 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		77987BE5254C016100B18BF6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				77987C6A2552542100B18BF6 /* LeanCloud in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		77987BF6254C016300B18BF6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		77987C01254C016300B18BF6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		77987BDF254C016100B18BF6 = {
+			isa = PBXGroup;
+			children = (
+				77987BEA254C016100B18BF6 /* LandManagement */,
+				77987BFC254C016300B18BF6 /* LandManagementTests */,
+				77987C07254C016300B18BF6 /* LandManagementUITests */,
+				77987BE9254C016100B18BF6 /* Products */,
+				FF9FB3601EF2B6606A3C4110 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		77987BE9254C016100B18BF6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				77987BE8254C016100B18BF6 /* LandManagement.app */,
+				77987BF9254C016300B18BF6 /* LandManagementTests.xctest */,
+				77987C04254C016300B18BF6 /* LandManagementUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		77987BEA254C016100B18BF6 /* LandManagement */ = {
+			isa = PBXGroup;
+			children = (
+				77987C21254C02BC00B18BF6 /* JSON */,
+				77987C28254C02BC00B18BF6 /* Model */,
+				77987BEB254C016100B18BF6 /* LandManagementApp.swift */,
+				77987BED254C016100B18BF6 /* ContentView.swift */,
+				77987BEF254C016300B18BF6 /* Assets.xcassets */,
+				77987BF4254C016300B18BF6 /* Info.plist */,
+				77987BF1254C016300B18BF6 /* Preview Content */,
+				77987C6E2552973400B18BF6 /* LoginView.swift */,
+			);
+			path = LandManagement;
+			sourceTree = "<group>";
+		};
+		77987BF1254C016300B18BF6 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				77987BF2254C016300B18BF6 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		77987BFC254C016300B18BF6 /* LandManagementTests */ = {
+			isa = PBXGroup;
+			children = (
+				77987BFD254C016300B18BF6 /* LandManagementTests.swift */,
+				77987BFF254C016300B18BF6 /* Info.plist */,
+			);
+			path = LandManagementTests;
+			sourceTree = "<group>";
+		};
+		77987C07254C016300B18BF6 /* LandManagementUITests */ = {
+			isa = PBXGroup;
+			children = (
+				77987C08254C016300B18BF6 /* LandManagementUITests.swift */,
+				77987C0A254C016300B18BF6 /* Info.plist */,
+			);
+			path = LandManagementUITests;
+			sourceTree = "<group>";
+		};
+		77987C21254C02BC00B18BF6 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				77987C22254C02BC00B18BF6 /* season.json */,
+				77987C23254C02BC00B18BF6 /* league.json */,
+				77987C24254C02BC00B18BF6 /* player.json */,
+				77987C25254C02BC00B18BF6 /* resource.json */,
+				77987C26254C02BC00B18BF6 /* group.json */,
+				77987C27254C02BC00B18BF6 /* county.json */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		77987C28254C02BC00B18BF6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				77987C29254C02BC00B18BF6 /* County.swift */,
+				77987C2A254C02BC00B18BF6 /* User.swift */,
+				77987C2B254C02BC00B18BF6 /* Resource.swift */,
+				77987C2C254C02BC00B18BF6 /* Zone.swift */,
+				77987C2D254C02BC00B18BF6 /* Group.swift */,
+				77987C2E254C02BC00B18BF6 /* League.swift */,
+				77987C2F254C02BC00B18BF6 /* Player.swift */,
+				77987C30254C02BC00B18BF6 /* Season.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FF9FB3601EF2B6606A3C4110 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		77987BE7254C016100B18BF6 /* LandManagement */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 77987C0D254C016300B18BF6 /* Build configuration list for PBXNativeTarget "LandManagement" */;
+			buildPhases = (
+				77987BE4254C016100B18BF6 /* Sources */,
+				77987BE5254C016100B18BF6 /* Frameworks */,
+				77987BE6254C016100B18BF6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LandManagement;
+			packageProductDependencies = (
+				77987C692552542100B18BF6 /* LeanCloud */,
+			);
+			productName = LandManagement;
+			productReference = 77987BE8254C016100B18BF6 /* LandManagement.app */;
+			productType = "com.apple.product-type.application";
+		};
+		77987BF8254C016300B18BF6 /* LandManagementTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 77987C10254C016300B18BF6 /* Build configuration list for PBXNativeTarget "LandManagementTests" */;
+			buildPhases = (
+				77987BF5254C016300B18BF6 /* Sources */,
+				77987BF6254C016300B18BF6 /* Frameworks */,
+				77987BF7254C016300B18BF6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				77987BFB254C016300B18BF6 /* PBXTargetDependency */,
+			);
+			name = LandManagementTests;
+			productName = LandManagementTests;
+			productReference = 77987BF9254C016300B18BF6 /* LandManagementTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		77987C03254C016300B18BF6 /* LandManagementUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 77987C13254C016300B18BF6 /* Build configuration list for PBXNativeTarget "LandManagementUITests" */;
+			buildPhases = (
+				77987C00254C016300B18BF6 /* Sources */,
+				77987C01254C016300B18BF6 /* Frameworks */,
+				77987C02254C016300B18BF6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				77987C06254C016300B18BF6 /* PBXTargetDependency */,
+			);
+			name = LandManagementUITests;
+			productName = LandManagementUITests;
+			productReference = 77987C04254C016300B18BF6 /* LandManagementUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		77987BE0254C016100B18BF6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1210;
+				LastUpgradeCheck = 1210;
+				TargetAttributes = {
+					77987BE7254C016100B18BF6 = {
+						CreatedOnToolsVersion = 12.1;
+					};
+					77987BF8254C016300B18BF6 = {
+						CreatedOnToolsVersion = 12.1;
+						TestTargetID = 77987BE7254C016100B18BF6;
+					};
+					77987C03254C016300B18BF6 = {
+						CreatedOnToolsVersion = 12.1;
+						TestTargetID = 77987BE7254C016100B18BF6;
+					};
+				};
+			};
+			buildConfigurationList = 77987BE3254C016100B18BF6 /* Build configuration list for PBXProject "LandManagement" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 77987BDF254C016100B18BF6;
+			packageReferences = (
+				77987C682552542100B18BF6 /* XCRemoteSwiftPackageReference "swift-sdk" */,
+			);
+			productRefGroup = 77987BE9254C016100B18BF6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				77987BE7254C016100B18BF6 /* LandManagement */,
+				77987BF8254C016300B18BF6 /* LandManagementTests */,
+				77987C03254C016300B18BF6 /* LandManagementUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		77987BE6254C016100B18BF6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				77987C33254C02BC00B18BF6 /* player.json in Resources */,
+				77987C35254C02BC00B18BF6 /* group.json in Resources */,
+				77987BF3254C016300B18BF6 /* Preview Assets.xcassets in Resources */,
+				77987BF0254C016300B18BF6 /* Assets.xcassets in Resources */,
+				77987C32254C02BC00B18BF6 /* league.json in Resources */,
+				77987C36254C02BC00B18BF6 /* county.json in Resources */,
+				77987C31254C02BC00B18BF6 /* season.json in Resources */,
+				77987C34254C02BC00B18BF6 /* resource.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		77987BF7254C016300B18BF6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		77987C02254C016300B18BF6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		77987BE4254C016100B18BF6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				77987C3B254C02BC00B18BF6 /* Group.swift in Sources */,
+				77987C38254C02BC00B18BF6 /* User.swift in Sources */,
+				77987C3E254C02BC00B18BF6 /* Season.swift in Sources */,
+				77987C3C254C02BC00B18BF6 /* League.swift in Sources */,
+				77987C37254C02BC00B18BF6 /* County.swift in Sources */,
+				77987BEE254C016100B18BF6 /* ContentView.swift in Sources */,
+				77987C39254C02BC00B18BF6 /* Resource.swift in Sources */,
+				77987BEC254C016100B18BF6 /* LandManagementApp.swift in Sources */,
+				77987C6F2552973400B18BF6 /* LoginView.swift in Sources */,
+				77987C3D254C02BC00B18BF6 /* Player.swift in Sources */,
+				77987C3A254C02BC00B18BF6 /* Zone.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		77987BF5254C016300B18BF6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				77987BFE254C016300B18BF6 /* LandManagementTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		77987C00254C016300B18BF6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				77987C09254C016300B18BF6 /* LandManagementUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		77987BFB254C016300B18BF6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 77987BE7254C016100B18BF6 /* LandManagement */;
+			targetProxy = 77987BFA254C016300B18BF6 /* PBXContainerItemProxy */;
+		};
+		77987C06254C016300B18BF6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 77987BE7254C016100B18BF6 /* LandManagement */;
+			targetProxy = 77987C05254C016300B18BF6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		77987C0B254C016300B18BF6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		77987C0C254C016300B18BF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		77987C0E254C016300B18BF6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"LandManagement/Preview Content\"";
+				DEVELOPMENT_TEAM = L9VJC84TY6;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = LandManagement/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.onsoft.LandManagement;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		77987C0F254C016300B18BF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"LandManagement/Preview Content\"";
+				DEVELOPMENT_TEAM = L9VJC84TY6;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = LandManagement/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.onsoft.LandManagement;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		77987C11254C016300B18BF6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L9VJC84TY6;
+				INFOPLIST_FILE = LandManagementTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.onsoft.LandManagementTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LandManagement.app/LandManagement";
+			};
+			name = Debug;
+		};
+		77987C12254C016300B18BF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L9VJC84TY6;
+				INFOPLIST_FILE = LandManagementTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.onsoft.LandManagementTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LandManagement.app/LandManagement";
+			};
+			name = Release;
+		};
+		77987C14254C016300B18BF6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L9VJC84TY6;
+				INFOPLIST_FILE = LandManagementUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.onsoft.LandManagementUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LandManagement;
+			};
+			name = Debug;
+		};
+		77987C15254C016300B18BF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L9VJC84TY6;
+				INFOPLIST_FILE = LandManagementUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.onsoft.LandManagementUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LandManagement;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		77987BE3254C016100B18BF6 /* Build configuration list for PBXProject "LandManagement" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				77987C0B254C016300B18BF6 /* Debug */,
+				77987C0C254C016300B18BF6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		77987C0D254C016300B18BF6 /* Build configuration list for PBXNativeTarget "LandManagement" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				77987C0E254C016300B18BF6 /* Debug */,
+				77987C0F254C016300B18BF6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		77987C10254C016300B18BF6 /* Build configuration list for PBXNativeTarget "LandManagementTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				77987C11254C016300B18BF6 /* Debug */,
+				77987C12254C016300B18BF6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		77987C13254C016300B18BF6 /* Build configuration list for PBXNativeTarget "LandManagementUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				77987C14254C016300B18BF6 /* Debug */,
+				77987C15254C016300B18BF6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		77987C682552542100B18BF6 /* XCRemoteSwiftPackageReference "swift-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/leancloud/swift-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 17.6.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		77987C692552542100B18BF6 /* LeanCloud */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 77987C682552542100B18BF6 /* XCRemoteSwiftPackageReference "swift-sdk" */;
+			productName = LeanCloud;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 77987BE0254C016100B18BF6 /* Project object */;
+}

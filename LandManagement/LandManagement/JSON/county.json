@@ -1,0 +1,9 @@
+﻿[
+    {"name":"襄阳郡","state":"江汉","countyId":1,"seasonId":5},
+    {"name":"魏兴郡","state":"江汉","countyId":2,"seasonId":5},
+    {"name":"上庸郡","state":"江汉","countyId":3,"seasonId":5},
+    {"name":"南阳郡","state":"江汉","countyId":4,"seasonId":5},
+    {"name":"江夏郡","state":"江汉","countyId":5,"seasonId":5},
+    {"name":"河南尹","state":"关中","countyId":6,"seasonId":5},
+    {"name":"弘农郡","state":"关中","countyId":7,"seasonId":5}
+]

@@ -6,13 +6,32 @@
 //
 
 import SwiftUI
+import LeanCloud
 
 @main
 struct LandManagementApp: SwiftUI.App {
+    init() {
+        setupLeanCloud()
+    }
     var body: some Scene {
+        
         WindowGroup {
-//            ContentView()
-            LoginView()
+            NavigationView {
+                LoginView()
+            }
+        }
+    }
+}
+
+private extension LandManagementApp {
+    func setupLeanCloud() {
+        do {
+            try LCApplication.default.set(
+                id: "YShveg1hbqs8GcUDrRJRESLG-9Nh9j0Va",
+                key: "BznaJcjcD5MzEyFTe9VYrLWJ",
+                serverURL: "https://yshveg1h.lc-cn-e1-shared.com")
+        } catch {
+            print(error)
         }
     }
 }

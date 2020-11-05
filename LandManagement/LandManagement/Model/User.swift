@@ -10,8 +10,6 @@ import Foundation
 import LeanCloud
 
 class User: LCUser {
-//    override static func objectClassName() -> String {
-//            return "User"
-//        }
+    @objc dynamic var nickname: LCString = LCString("")
 }
 

@@ -29,6 +29,9 @@
 		77987C3E254C02BC00B18BF6 /* Season.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77987C30254C02BC00B18BF6 /* Season.swift */; };
 		77987C6A2552542100B18BF6 /* LeanCloud in Frameworks */ = {isa = PBXBuildFile; productRef = 77987C692552542100B18BF6 /* LeanCloud */; };
 		77987C6F2552973400B18BF6 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77987C6E2552973400B18BF6 /* LoginView.swift */; };
+		77987C80255386B000B18BF6 /* ToastUI in Frameworks */ = {isa = PBXBuildFile; productRef = 77987C7F255386B000B18BF6 /* ToastUI */; };
+		77987C882553DE0300B18BF6 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77987C872553DE0300B18BF6 /* RegisterView.swift */; };
+		77987C8F2553DEA500B18BF6 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77987C8E2553DEA500B18BF6 /* StringExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +79,8 @@
 		77987C2F254C02BC00B18BF6 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		77987C30254C02BC00B18BF6 /* Season.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Season.swift; sourceTree = "<group>"; };
 		77987C6E2552973400B18BF6 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		77987C872553DE0300B18BF6 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		77987C8E2553DEA500B18BF6 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77987C80255386B000B18BF6 /* ToastUI in Frameworks */,
 				77987C6A2552542100B18BF6 /* LeanCloud in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -128,6 +134,7 @@
 		77987BEA254C016100B18BF6 /* LandManagement */ = {
 			isa = PBXGroup;
 			children = (
+				77987C8D2553DE8800B18BF6 /* Extension */,
 				77987C21254C02BC00B18BF6 /* JSON */,
 				77987C28254C02BC00B18BF6 /* Model */,
 				77987BEB254C016100B18BF6 /* LandManagementApp.swift */,
@@ -136,6 +143,7 @@
 				77987BF4254C016300B18BF6 /* Info.plist */,
 				77987BF1254C016300B18BF6 /* Preview Content */,
 				77987C6E2552973400B18BF6 /* LoginView.swift */,
+				77987C872553DE0300B18BF6 /* RegisterView.swift */,
 			);
 			path = LandManagement;
 			sourceTree = "<group>";
@@ -194,6 +202,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		77987C8D2553DE8800B18BF6 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				77987C8E2553DEA500B18BF6 /* StringExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		FF9FB3601EF2B6606A3C4110 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,6 +235,7 @@
 			name = LandManagement;
 			packageProductDependencies = (
 				77987C692552542100B18BF6 /* LeanCloud */,
+				77987C7F255386B000B18BF6 /* ToastUI */,
 			);
 			productName = LandManagement;
 			productReference = 77987BE8254C016100B18BF6 /* LandManagement.app */;
@@ -293,6 +310,7 @@
 			mainGroup = 77987BDF254C016100B18BF6;
 			packageReferences = (
 				77987C682552542100B18BF6 /* XCRemoteSwiftPackageReference "swift-sdk" */,
+				77987C7E255386B000B18BF6 /* XCRemoteSwiftPackageReference "ToastUI" */,
 			);
 			productRefGroup = 77987BE9254C016100B18BF6 /* Products */;
 			projectDirPath = "";
@@ -351,7 +369,9 @@
 				77987C39254C02BC00B18BF6 /* Resource.swift in Sources */,
 				77987BEC254C016100B18BF6 /* LandManagementApp.swift in Sources */,
 				77987C6F2552973400B18BF6 /* LoginView.swift in Sources */,
+				77987C882553DE0300B18BF6 /* RegisterView.swift in Sources */,
 				77987C3D254C02BC00B18BF6 /* Player.swift in Sources */,
+				77987C8F2553DEA500B18BF6 /* StringExtension.swift in Sources */,
 				77987C3A254C02BC00B18BF6 /* Zone.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -682,6 +702,14 @@
 				minimumVersion = 17.6.1;
 			};
 		};
+		77987C7E255386B000B18BF6 /* XCRemoteSwiftPackageReference "ToastUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/quanshousio/ToastUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -689,6 +717,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 77987C682552542100B18BF6 /* XCRemoteSwiftPackageReference "swift-sdk" */;
 			productName = LeanCloud;
+		};
+		77987C7F255386B000B18BF6 /* ToastUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 77987C7E255386B000B18BF6 /* XCRemoteSwiftPackageReference "ToastUI" */;
+			productName = ToastUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

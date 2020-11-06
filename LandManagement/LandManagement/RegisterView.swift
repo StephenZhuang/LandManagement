@@ -10,7 +10,7 @@ import ToastUI
 import LeanCloud
 
 struct RegisterView: View {
-    @Binding var isPushed: Bool
+    @Environment(\.presentationMode) var presentation
     @State private var phone = "18112339163"
     @State private var nickName = "黄石公"
     @State private var password = ""
@@ -53,8 +53,8 @@ struct RegisterView: View {
                     ToastView("注册中...")
                         .toastViewStyle(IndefiniteProgressToastViewStyle())
                 }
-                .toast(isPresented: $presentingSuccessView, dismissAfter: 2.0) {
-                    isPushed = false
+                .toast(isPresented: $presentingSuccessView, dismissAfter: 1.0) {
+                    self.presentation.wrappedValue.dismiss()
                 } content: {
                     ToastView("注册成功")
                         .toastViewStyle(SuccessToastViewStyle())
@@ -137,6 +137,6 @@ struct RegisterView: View {
 
 struct RegisterView_Previews: PreviewProvider {
     static var previews: some View {
-        RegisterView(isPushed: .constant(true))
+        RegisterView()
     }
 }

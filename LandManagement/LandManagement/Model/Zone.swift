@@ -16,6 +16,9 @@ class Zone: LCObject {
 //  override static func ignoredProperties() -> [String] {
 //    return []
 //  }
-    @objc dynamic var ower: User?
-    
+    @objc dynamic var owner: LCUser?
+    @objc dynamic var name: LCString = LCString("")
+    override static func objectClassName() -> String {
+        return "Zone"
+    }
 }

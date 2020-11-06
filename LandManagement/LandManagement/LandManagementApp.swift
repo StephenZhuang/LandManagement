@@ -17,7 +17,11 @@ struct LandManagementApp: SwiftUI.App {
         
         WindowGroup {
             NavigationView {
-                LoginView()
+                if LCApplication.default.currentUser != nil {
+                    ZoneListView(isPushed: .constant(true))
+                } else {
+                    LoginView()
+                }
             }
         }
     }
@@ -33,5 +37,7 @@ private extension LandManagementApp {
         } catch {
             print(error)
         }
+        Zone.register()
+        User.register()
     }
 }

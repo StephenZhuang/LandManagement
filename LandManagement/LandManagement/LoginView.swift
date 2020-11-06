@@ -49,8 +49,13 @@ struct LoginView: View {
                 .padding()
             
             HStack {
-                Button("登录") {
+                NavigationLink(destination: ZoneListView(isPushed: $isPushed), isActive: $isPushed) {
+                    EmptyView()
+                }
+                Button {
                     self.login()
+                } label: {
+                    Text("登录")
                 }
                 .toast(isPresented: $presentingWaitingView) {
                     if loginSuccess {
@@ -62,7 +67,7 @@ struct LoginView: View {
                     ToastView(toastMessage)
                         .toastViewStyle(IndefiniteProgressToastViewStyle())
                 }
-                .toast(isPresented: $presentingSuccessView, dismissAfter: 2.0) {
+                .toast(isPresented: $presentingSuccessView, dismissAfter: 1.0) {
                     
                 } content: {
                     ToastView(toastMessage)
@@ -77,9 +82,9 @@ struct LoginView: View {
                 Spacer()
                 
                 Button {
-                    isPushed = true
+                    
                 } label: {
-                    NavigationLink(destination: RegisterView(isPushed: $isPushed), isActive: $isPushed) {
+                    NavigationLink(destination: RegisterView()) {
                         Text("注册")
                     }
                 }
@@ -128,9 +133,11 @@ struct LoginView: View {
                         loginSuccess = true
                         presentingWaitingView = false
                         toastMessage = "登录成功"
-                        AppUserDefaults.isLogin = true
-                        AppUserDefaults.phone = phone
-                        AppUserDefaults.sessionToken = user.sessionToken?.stringValue ?? ""
+//                        AppUserDefaults.isLogin = true
+//                        AppUserDefaults.phone = phone
+//                        AppUserDefaults.sessionToken = user.sessionToken?.stringValue ?? ""
+                        isPushed = true
+                        
                         print(user)
                     case .failure(error: let error):
                         loginSuccess = false

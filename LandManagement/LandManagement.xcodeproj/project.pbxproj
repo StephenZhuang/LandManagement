@@ -35,6 +35,7 @@
 		77987C962554DC6100B18BF6 /* AppUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77987C932554DC6100B18BF6 /* AppUserDefaults.swift */; };
 		77987C972554DC6100B18BF6 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77987C942554DC6100B18BF6 /* Key.swift */; };
 		77987C982554DC6100B18BF6 /* UserDetaultWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77987C952554DC6100B18BF6 /* UserDetaultWrapper.swift */; };
+		77987C9D2554F57D00B18BF6 /* ZoneListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77987C9C2554F57D00B18BF6 /* ZoneListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		77987C932554DC6100B18BF6 /* AppUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUserDefaults.swift; sourceTree = "<group>"; };
 		77987C942554DC6100B18BF6 /* Key.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
 		77987C952554DC6100B18BF6 /* UserDetaultWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetaultWrapper.swift; sourceTree = "<group>"; };
+		77987C9C2554F57D00B18BF6 /* ZoneListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoneListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 				77987BF1254C016300B18BF6 /* Preview Content */,
 				77987C6E2552973400B18BF6 /* LoginView.swift */,
 				77987C872553DE0300B18BF6 /* RegisterView.swift */,
+				77987C9C2554F57D00B18BF6 /* ZoneListView.swift */,
 			);
 			path = LandManagement;
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 				77987C972554DC6100B18BF6 /* Key.swift in Sources */,
 				77987C3D254C02BC00B18BF6 /* Player.swift in Sources */,
 				77987C8F2553DEA500B18BF6 /* StringExtension.swift in Sources */,
+				77987C9D2554F57D00B18BF6 /* ZoneListView.swift in Sources */,
 				77987C3A254C02BC00B18BF6 /* Zone.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

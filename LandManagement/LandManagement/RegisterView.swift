@@ -60,7 +60,7 @@ struct RegisterView: View {
                         .toastViewStyle(SuccessToastViewStyle())
                 }
                 .toast(isPresented: $presentingErrorView, dismissAfter: 2.0) {
-//                    isPushed = false
+
                 } content: {
                     ToastView(toastMessage)
                         .toastViewStyle(ErrorToastViewStyle())

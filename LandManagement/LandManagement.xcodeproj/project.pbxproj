@@ -32,6 +32,9 @@
 		77987C80255386B000B18BF6 /* ToastUI in Frameworks */ = {isa = PBXBuildFile; productRef = 77987C7F255386B000B18BF6 /* ToastUI */; };
 		77987C882553DE0300B18BF6 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77987C872553DE0300B18BF6 /* RegisterView.swift */; };
 		77987C8F2553DEA500B18BF6 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77987C8E2553DEA500B18BF6 /* StringExtension.swift */; };
+		77987C962554DC6100B18BF6 /* AppUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77987C932554DC6100B18BF6 /* AppUserDefaults.swift */; };
+		77987C972554DC6100B18BF6 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77987C942554DC6100B18BF6 /* Key.swift */; };
+		77987C982554DC6100B18BF6 /* UserDetaultWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77987C952554DC6100B18BF6 /* UserDetaultWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +84,9 @@
 		77987C6E2552973400B18BF6 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		77987C872553DE0300B18BF6 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		77987C8E2553DEA500B18BF6 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		77987C932554DC6100B18BF6 /* AppUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUserDefaults.swift; sourceTree = "<group>"; };
+		77987C942554DC6100B18BF6 /* Key.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
+		77987C952554DC6100B18BF6 /* UserDetaultWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetaultWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +211,9 @@
 		77987C8D2553DE8800B18BF6 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				77987C932554DC6100B18BF6 /* AppUserDefaults.swift */,
+				77987C942554DC6100B18BF6 /* Key.swift */,
+				77987C952554DC6100B18BF6 /* UserDetaultWrapper.swift */,
 				77987C8E2553DEA500B18BF6 /* StringExtension.swift */,
 			);
 			path = Extension;
@@ -364,12 +373,15 @@
 				77987C38254C02BC00B18BF6 /* User.swift in Sources */,
 				77987C3E254C02BC00B18BF6 /* Season.swift in Sources */,
 				77987C3C254C02BC00B18BF6 /* League.swift in Sources */,
+				77987C962554DC6100B18BF6 /* AppUserDefaults.swift in Sources */,
 				77987C37254C02BC00B18BF6 /* County.swift in Sources */,
+				77987C982554DC6100B18BF6 /* UserDetaultWrapper.swift in Sources */,
 				77987BEE254C016100B18BF6 /* ContentView.swift in Sources */,
 				77987C39254C02BC00B18BF6 /* Resource.swift in Sources */,
 				77987BEC254C016100B18BF6 /* LandManagementApp.swift in Sources */,
 				77987C6F2552973400B18BF6 /* LoginView.swift in Sources */,
 				77987C882553DE0300B18BF6 /* RegisterView.swift in Sources */,
+				77987C972554DC6100B18BF6 /* Key.swift in Sources */,
 				77987C3D254C02BC00B18BF6 /* Player.swift in Sources */,
 				77987C8F2553DEA500B18BF6 /* StringExtension.swift in Sources */,
 				77987C3A254C02BC00B18BF6 /* Zone.swift in Sources */,

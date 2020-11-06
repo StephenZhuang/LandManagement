@@ -7,6 +7,7 @@
 
 import SwiftUI
 import ToastUI
+import LeanCloud
 
 struct LoginView: View {
     @State var isPushed = false
@@ -19,6 +20,8 @@ struct LoginView: View {
     @State private var presentingWaitingView: Bool = false
     @State private var presentingSuccessView: Bool = false
     @State private var presentingErrorView: Bool = false
+    @State private var toastMessage: String = ""
+    @State private var loginSuccess: Bool = false
     var body: some View {
         VStack {
             TextField("手机号", text: $phone)
@@ -47,17 +50,29 @@ struct LoginView: View {
             
             HStack {
                 Button("登录") {
-                    presentingWaitingView = true
+                    self.login()
                 }
-                .toast(isPresented: $presentingWaitingView, dismissAfter: 2.0) {
-                    presentingSuccessView = true
+                .toast(isPresented: $presentingWaitingView) {
+                    if loginSuccess {
+                        presentingSuccessView = true
+                    } else {
+                        presentingErrorView = true
+                    }
                 } content: {
-                    ToastView("登录中...")
+                    ToastView(toastMessage)
                         .toastViewStyle(IndefiniteProgressToastViewStyle())
                 }
                 .toast(isPresented: $presentingSuccessView, dismissAfter: 2.0) {
-                    ToastView("登录成功")
+                    
+                } content: {
+                    ToastView(toastMessage)
                         .toastViewStyle(SuccessToastViewStyle())
+                }
+                .toast(isPresented: $presentingErrorView, dismissAfter: 2.0) {
+
+                } content: {
+                    ToastView(toastMessage)
+                        .toastViewStyle(ErrorToastViewStyle())
                 }
                 Spacer()
                 
@@ -102,7 +117,37 @@ struct LoginView: View {
 //
 //        codeTimer.activate()
 //    }
-    
+    func login() {
+        if phone.isPhone() {
+            if password.count > 0 {
+                toastMessage = "登录中"
+                presentingWaitingView = true
+                _ = User.logIn(mobilePhoneNumber: "+86"+phone, password: password) { result in
+                    switch result {
+                    case .success(object: let user):
+                        loginSuccess = true
+                        presentingWaitingView = false
+                        toastMessage = "登录成功"
+                        AppUserDefaults.isLogin = true
+                        AppUserDefaults.phone = phone
+                        AppUserDefaults.sessionToken = user.sessionToken?.stringValue ?? ""
+                        print(user)
+                    case .failure(error: let error):
+                        loginSuccess = false
+                        presentingWaitingView = false
+                        toastMessage = "登录失败"
+                        print(error)
+                    }
+                }
+            } else {
+                toastMessage = "请输入密码"
+                presentingErrorView = true
+            }
+        } else {
+            toastMessage = "请输入正确的手机号"
+            presentingErrorView = true
+        }
+    }
     
 }
 

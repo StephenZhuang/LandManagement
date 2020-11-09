@@ -1,7 +1,5 @@
-﻿[
-    {"season":"S1","seasonId":1},
-    {"season":"S2","seasonId":2},
-    {"season":"S3","seasonId":3},
-    {"season":"S4","seasonId":4},
-    {"season":"S5","seasonId":5}
+[
+    {"season":"S1-3","seasonId":1,"name":"英雄露颖"},
+    {"season":"S4","seasonId":4,"name":"群雄逐鹿"},
+    {"season":"S5","seasonId":5,"name":"天下争锋"}
 ]

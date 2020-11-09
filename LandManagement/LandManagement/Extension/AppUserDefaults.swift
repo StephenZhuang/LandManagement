@@ -17,4 +17,7 @@ struct AppUserDefaults {
     
     @UserDefault("phone", defaultValue: "")
     static var phone: String
+    
+    @UserDefault("selectedZone", defaultValue: "")
+    static var selectedZone: String
 }

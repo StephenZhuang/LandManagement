@@ -16,14 +16,27 @@ struct ZoneListView: View {
     
     @State private var showAddButton: Bool = false
     @State private var refreshing: Bool = false
+    @State var tabViewPushed = false
     var body: some View {
         VStack {
             
+            NavigationLink(destination: LandManagementTabView(), isActive: $tabViewPushed) {
+                EmptyView()
+            }
             List {
                 
                 Section(header: Text("我创建的")) {
                     if myZone != nil {
-                        Text(myZone!.name.stringValue ?? "")
+                        
+                        Button {
+                            AppUserDefaults.selectedZone = myZone?.objectId?.stringValue ?? ""
+                            tabViewPushed = true
+                        } label: {
+                            Text(myZone!.name.stringValue ?? "")
+                        }
+//                        NavigationLink(destination: LandManagementTabView()) {
+//                            Text(myZone!.name.stringValue ?? "")
+//                        }
                     }
                     if showAddButton {
                         Button {
@@ -42,6 +55,7 @@ struct ZoneListView: View {
             self.fetchMyZone()
         }
         .navigationBarTitle("土管所")
+        .navigationBarHidden(false)
         .onAppear { self.fetchMyZone() }
         
     }
@@ -84,6 +98,7 @@ struct ZoneListView: View {
             print(error)
         }
     }
+    
 }
 
 struct ZoneListView_Previews: PreviewProvider {

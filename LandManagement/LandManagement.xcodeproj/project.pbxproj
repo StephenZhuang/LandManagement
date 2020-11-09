@@ -36,6 +36,10 @@
 		77987C982554DC6100B18BF6 /* UserDetaultWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77987C952554DC6100B18BF6 /* UserDetaultWrapper.swift */; };
 		77987C9D2554F57D00B18BF6 /* ZoneListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77987C9C2554F57D00B18BF6 /* ZoneListView.swift */; };
 		77987CC42558EBAE00B18BF6 /* SwiftUIRefresh in Frameworks */ = {isa = PBXBuildFile; productRef = 77987CC32558EBAE00B18BF6 /* SwiftUIRefresh */; };
+		77987CC925590FBE00B18BF6 /* LandManagementTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77987CC825590FBE00B18BF6 /* LandManagementTabView.swift */; };
+		77987CCE25590FDC00B18BF6 /* ResourceList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77987CCD25590FDC00B18BF6 /* ResourceList.swift */; };
+		77987CD32559101B00B18BF6 /* AppraiseList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77987CD22559101B00B18BF6 /* AppraiseList.swift */; };
+		77987CD82559102D00B18BF6 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77987CD72559102D00B18BF6 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +92,10 @@
 		77987C942554DC6100B18BF6 /* Key.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
 		77987C952554DC6100B18BF6 /* UserDetaultWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetaultWrapper.swift; sourceTree = "<group>"; };
 		77987C9C2554F57D00B18BF6 /* ZoneListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoneListView.swift; sourceTree = "<group>"; };
+		77987CC825590FBE00B18BF6 /* LandManagementTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandManagementTabView.swift; sourceTree = "<group>"; };
+		77987CCD25590FDC00B18BF6 /* ResourceList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceList.swift; sourceTree = "<group>"; };
+		77987CD22559101B00B18BF6 /* AppraiseList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppraiseList.swift; sourceTree = "<group>"; };
+		77987CD72559102D00B18BF6 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +161,10 @@
 				77987C6E2552973400B18BF6 /* LoginView.swift */,
 				77987C872553DE0300B18BF6 /* RegisterView.swift */,
 				77987C9C2554F57D00B18BF6 /* ZoneListView.swift */,
+				77987CC825590FBE00B18BF6 /* LandManagementTabView.swift */,
+				77987CCD25590FDC00B18BF6 /* ResourceList.swift */,
+				77987CD22559101B00B18BF6 /* AppraiseList.swift */,
+				77987CD72559102D00B18BF6 /* SettingsView.swift */,
 			);
 			path = LandManagement;
 			sourceTree = "<group>";
@@ -374,9 +386,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				77987C3B254C02BC00B18BF6 /* Group.swift in Sources */,
+				77987CD32559101B00B18BF6 /* AppraiseList.swift in Sources */,
 				77987C3E254C02BC00B18BF6 /* Season.swift in Sources */,
 				77987C3C254C02BC00B18BF6 /* League.swift in Sources */,
 				77987C962554DC6100B18BF6 /* AppUserDefaults.swift in Sources */,
+				77987CD82559102D00B18BF6 /* SettingsView.swift in Sources */,
 				77987C37254C02BC00B18BF6 /* County.swift in Sources */,
 				77987C982554DC6100B18BF6 /* UserDetaultWrapper.swift in Sources */,
 				77987BEE254C016100B18BF6 /* ContentView.swift in Sources */,
@@ -384,7 +398,9 @@
 				77987BEC254C016100B18BF6 /* LandManagementApp.swift in Sources */,
 				77987C6F2552973400B18BF6 /* LoginView.swift in Sources */,
 				77987C882553DE0300B18BF6 /* RegisterView.swift in Sources */,
+				77987CC925590FBE00B18BF6 /* LandManagementTabView.swift in Sources */,
 				77987C972554DC6100B18BF6 /* Key.swift in Sources */,
+				77987CCE25590FDC00B18BF6 /* ResourceList.swift in Sources */,
 				77987C3D254C02BC00B18BF6 /* Player.swift in Sources */,
 				77987C8F2553DEA500B18BF6 /* StringExtension.swift in Sources */,
 				77987C9D2554F57D00B18BF6 /* ZoneListView.swift in Sources */,

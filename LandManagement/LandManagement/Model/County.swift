@@ -11,13 +11,10 @@ import LeanCloud
 
 class County: LCObject {
 
-    @objc dynamic var name: LCString = ""
-    @objc dynamic var state = ""
-//    @objc dynamic var countyId = ObjectId.generate()
-    @objc dynamic var season: Season?
-    
-//    let resources = Resource.relationForKey("county")
+    @objc dynamic var name: LCString = LCString("")
+    @objc dynamic var state: LCString = LCString("")
+    @objc dynamic var owner: Zone?
     override static func objectClassName() -> String {
-            return "County"
-        }
+        return "County"
+    }
 }

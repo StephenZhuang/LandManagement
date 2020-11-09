@@ -20,7 +20,6 @@
 		77987C35254C02BC00B18BF6 /* group.json in Resources */ = {isa = PBXBuildFile; fileRef = 77987C26254C02BC00B18BF6 /* group.json */; };
 		77987C36254C02BC00B18BF6 /* county.json in Resources */ = {isa = PBXBuildFile; fileRef = 77987C27254C02BC00B18BF6 /* county.json */; };
 		77987C37254C02BC00B18BF6 /* County.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77987C29254C02BC00B18BF6 /* County.swift */; };
-		77987C38254C02BC00B18BF6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77987C2A254C02BC00B18BF6 /* User.swift */; };
 		77987C39254C02BC00B18BF6 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77987C2B254C02BC00B18BF6 /* Resource.swift */; };
 		77987C3A254C02BC00B18BF6 /* Zone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77987C2C254C02BC00B18BF6 /* Zone.swift */; };
 		77987C3B254C02BC00B18BF6 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77987C2D254C02BC00B18BF6 /* Group.swift */; };
@@ -36,6 +35,7 @@
 		77987C972554DC6100B18BF6 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77987C942554DC6100B18BF6 /* Key.swift */; };
 		77987C982554DC6100B18BF6 /* UserDetaultWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77987C952554DC6100B18BF6 /* UserDetaultWrapper.swift */; };
 		77987C9D2554F57D00B18BF6 /* ZoneListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77987C9C2554F57D00B18BF6 /* ZoneListView.swift */; };
+		77987CC42558EBAE00B18BF6 /* SwiftUIRefresh in Frameworks */ = {isa = PBXBuildFile; productRef = 77987CC32558EBAE00B18BF6 /* SwiftUIRefresh */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,7 +75,6 @@
 		77987C26254C02BC00B18BF6 /* group.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = group.json; sourceTree = "<group>"; };
 		77987C27254C02BC00B18BF6 /* county.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = county.json; sourceTree = "<group>"; };
 		77987C29254C02BC00B18BF6 /* County.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = County.swift; sourceTree = "<group>"; };
-		77987C2A254C02BC00B18BF6 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		77987C2B254C02BC00B18BF6 /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		77987C2C254C02BC00B18BF6 /* Zone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Zone.swift; sourceTree = "<group>"; };
 		77987C2D254C02BC00B18BF6 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
@@ -96,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77987CC42558EBAE00B18BF6 /* SwiftUIRefresh in Frameworks */,
 				77987C80255386B000B18BF6 /* ToastUI in Frameworks */,
 				77987C6A2552542100B18BF6 /* LeanCloud in Frameworks */,
 			);
@@ -200,7 +200,6 @@
 			isa = PBXGroup;
 			children = (
 				77987C29254C02BC00B18BF6 /* County.swift */,
-				77987C2A254C02BC00B18BF6 /* User.swift */,
 				77987C2B254C02BC00B18BF6 /* Resource.swift */,
 				77987C2C254C02BC00B18BF6 /* Zone.swift */,
 				77987C2D254C02BC00B18BF6 /* Group.swift */,
@@ -248,6 +247,7 @@
 			packageProductDependencies = (
 				77987C692552542100B18BF6 /* LeanCloud */,
 				77987C7F255386B000B18BF6 /* ToastUI */,
+				77987CC32558EBAE00B18BF6 /* SwiftUIRefresh */,
 			);
 			productName = LandManagement;
 			productReference = 77987BE8254C016100B18BF6 /* LandManagement.app */;
@@ -323,6 +323,7 @@
 			packageReferences = (
 				77987C682552542100B18BF6 /* XCRemoteSwiftPackageReference "swift-sdk" */,
 				77987C7E255386B000B18BF6 /* XCRemoteSwiftPackageReference "ToastUI" */,
+				77987CC22558EBAE00B18BF6 /* XCRemoteSwiftPackageReference "SwiftUIRefresh" */,
 			);
 			productRefGroup = 77987BE9254C016100B18BF6 /* Products */;
 			projectDirPath = "";
@@ -373,7 +374,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				77987C3B254C02BC00B18BF6 /* Group.swift in Sources */,
-				77987C38254C02BC00B18BF6 /* User.swift in Sources */,
 				77987C3E254C02BC00B18BF6 /* Season.swift in Sources */,
 				77987C3C254C02BC00B18BF6 /* League.swift in Sources */,
 				77987C962554DC6100B18BF6 /* AppUserDefaults.swift in Sources */,
@@ -726,6 +726,14 @@
 				minimumVersion = 1.2.1;
 			};
 		};
+		77987CC22558EBAE00B18BF6 /* XCRemoteSwiftPackageReference "SwiftUIRefresh" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/timbersoftware/SwiftUIRefresh.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -738,6 +746,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 77987C7E255386B000B18BF6 /* XCRemoteSwiftPackageReference "ToastUI" */;
 			productName = ToastUI;
+		};
+		77987CC32558EBAE00B18BF6 /* SwiftUIRefresh */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 77987CC22558EBAE00B18BF6 /* XCRemoteSwiftPackageReference "SwiftUIRefresh" */;
+			productName = SwiftUIRefresh;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

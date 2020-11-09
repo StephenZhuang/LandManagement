@@ -97,7 +97,7 @@ struct RegisterView: View {
     func register() {
         presentingWaitingView = true
         // 创建实例
-        let user = User()
+        let user = LCUser()
 
         // 等同于 user.set("username", value: "Tom")
         user.username = LCString("+86"+phone)
@@ -107,7 +107,7 @@ struct RegisterView: View {
         user.mobilePhoneNumber = LCString("+86"+phone)
 
         // 设置其他属性的方法跟 LCObject 一样
-        user.nickname = LCString(nickName)
+        user.setValue(nickName, forKey: "nickname")
 
         _ = user.signUp { (result) in
             switch result {

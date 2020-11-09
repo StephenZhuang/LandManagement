@@ -7,29 +7,47 @@
 
 import SwiftUI
 import LeanCloud
+import SwiftUIRefresh
 
 struct ZoneListView: View {
     @Binding var isPushed: Bool
-//    @State private var myZone: Zone
+    @State var myZone: Zone?
 //    @State private var managedZones: [Zone]
+    
+    @State private var showAddButton: Bool = false
+    @State private var refreshing: Bool = false
     var body: some View {
-        List {
-            Section(header: Text("我创建的")) {
-                Button {
-                    self.addZone()
-                } label: {
-                    Text("创建一个新的土管所")
-                }
-
-            }
-            Section(header: Text("我管理的")) {
+        VStack {
+            
+            List {
                 
+                Section(header: Text("我创建的")) {
+                    if myZone != nil {
+                        Text(myZone!.name.stringValue ?? "")
+                    }
+                    if showAddButton {
+                        Button {
+                            self.addZone()
+                        } label: {
+                            Text("创建一个新的土管所")
+                        }
+                    }
+                    
+                }
+                Section(header: Text("我管理的")) {
+                    
+                }
             }
+        }.pullToRefresh(isShowing: $refreshing) {
+            self.fetchMyZone()
         }
         .navigationBarTitle("土管所")
+        .onAppear { self.fetchMyZone() }
+        
     }
     
     func addZone() {
+        //TODO
         let zone = Zone(objectId: "5fa511897f22434137eba27b")
         zone.name = LCString("152威震华夏")
         zone.owner = LCApplication.default.currentUser
@@ -46,10 +64,31 @@ struct ZoneListView: View {
             }
         }
     }
+    
+    func fetchMyZone() {
+        do {
+            let query = LCQuery(className: "Zone")
+            try query.where("owner", .equalTo(LCApplication.default.currentUser!))
+            let _ = query.getFirst { (result) in
+                refreshing = false
+                switch result {
+                case .success(object: let zone):
+                    
+                    myZone = zone as? Zone
+                case .failure(error: let error):
+                    print(error)
+                    showAddButton = true
+                }
+            }
+        } catch {
+            print(error)
+        }
+    }
 }
 
 struct ZoneListView_Previews: PreviewProvider {
     static var previews: some View {
-        ZoneListView(isPushed: .constant(true))
+        let zone = Zone(objectId: "5fa511897f22434137eba27b")
+        ZoneListView(isPushed: .constant(true), myZone: zone)
     }
 }

@@ -38,6 +38,5 @@ private extension LandManagementApp {
             print(error)
         }
         Zone.register()
-        User.register()
     }
 }

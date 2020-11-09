@@ -127,7 +127,7 @@ struct LoginView: View {
             if password.count > 0 {
                 toastMessage = "登录中"
                 presentingWaitingView = true
-                _ = User.logIn(mobilePhoneNumber: "+86"+phone, password: password) { result in
+                _ = LCUser.logIn(mobilePhoneNumber: "+86"+phone, password: password) { result in
                     switch result {
                     case .success(object: let user):
                         loginSuccess = true

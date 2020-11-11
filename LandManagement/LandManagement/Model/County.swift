@@ -17,4 +17,9 @@ class County: LCObject {
     override static func objectClassName() -> String {
         return "County"
     }
+    
+    func updateWith(dic: Dictionary<String, Any>) {
+        self.name = LCString(dic["name"] as! String)
+        self.state = LCString(dic["state"] as! String)
+    }
 }

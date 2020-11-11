@@ -43,5 +43,9 @@ private extension LandManagementApp {
         }
         Zone.register()
         County.register()
+        Resource.register()
+        League.register()
+        Team.register()
+        Player.register()
     }
 }

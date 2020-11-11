@@ -17,12 +17,12 @@
 		77987C32254C02BC00B18BF6 /* league.json in Resources */ = {isa = PBXBuildFile; fileRef = 77987C23254C02BC00B18BF6 /* league.json */; };
 		77987C33254C02BC00B18BF6 /* player.json in Resources */ = {isa = PBXBuildFile; fileRef = 77987C24254C02BC00B18BF6 /* player.json */; };
 		77987C34254C02BC00B18BF6 /* resource.json in Resources */ = {isa = PBXBuildFile; fileRef = 77987C25254C02BC00B18BF6 /* resource.json */; };
-		77987C35254C02BC00B18BF6 /* group.json in Resources */ = {isa = PBXBuildFile; fileRef = 77987C26254C02BC00B18BF6 /* group.json */; };
+		77987C35254C02BC00B18BF6 /* team.json in Resources */ = {isa = PBXBuildFile; fileRef = 77987C26254C02BC00B18BF6 /* team.json */; };
 		77987C36254C02BC00B18BF6 /* county.json in Resources */ = {isa = PBXBuildFile; fileRef = 77987C27254C02BC00B18BF6 /* county.json */; };
 		77987C37254C02BC00B18BF6 /* County.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77987C29254C02BC00B18BF6 /* County.swift */; };
 		77987C39254C02BC00B18BF6 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77987C2B254C02BC00B18BF6 /* Resource.swift */; };
 		77987C3A254C02BC00B18BF6 /* Zone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77987C2C254C02BC00B18BF6 /* Zone.swift */; };
-		77987C3B254C02BC00B18BF6 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77987C2D254C02BC00B18BF6 /* Group.swift */; };
+		77987C3B254C02BC00B18BF6 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77987C2D254C02BC00B18BF6 /* Team.swift */; };
 		77987C3C254C02BC00B18BF6 /* League.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77987C2E254C02BC00B18BF6 /* League.swift */; };
 		77987C3D254C02BC00B18BF6 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77987C2F254C02BC00B18BF6 /* Player.swift */; };
 		77987C3E254C02BC00B18BF6 /* Season.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77987C30254C02BC00B18BF6 /* Season.swift */; };
@@ -76,12 +76,12 @@
 		77987C23254C02BC00B18BF6 /* league.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = league.json; sourceTree = "<group>"; };
 		77987C24254C02BC00B18BF6 /* player.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = player.json; sourceTree = "<group>"; };
 		77987C25254C02BC00B18BF6 /* resource.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = resource.json; sourceTree = "<group>"; };
-		77987C26254C02BC00B18BF6 /* group.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = group.json; sourceTree = "<group>"; };
+		77987C26254C02BC00B18BF6 /* team.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = team.json; sourceTree = "<group>"; };
 		77987C27254C02BC00B18BF6 /* county.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = county.json; sourceTree = "<group>"; };
 		77987C29254C02BC00B18BF6 /* County.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = County.swift; sourceTree = "<group>"; };
 		77987C2B254C02BC00B18BF6 /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		77987C2C254C02BC00B18BF6 /* Zone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Zone.swift; sourceTree = "<group>"; };
-		77987C2D254C02BC00B18BF6 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		77987C2D254C02BC00B18BF6 /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		77987C2E254C02BC00B18BF6 /* League.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = League.swift; sourceTree = "<group>"; };
 		77987C2F254C02BC00B18BF6 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		77987C30254C02BC00B18BF6 /* Season.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Season.swift; sourceTree = "<group>"; };
@@ -202,7 +202,7 @@
 				77987C23254C02BC00B18BF6 /* league.json */,
 				77987C24254C02BC00B18BF6 /* player.json */,
 				77987C25254C02BC00B18BF6 /* resource.json */,
-				77987C26254C02BC00B18BF6 /* group.json */,
+				77987C26254C02BC00B18BF6 /* team.json */,
 				77987C27254C02BC00B18BF6 /* county.json */,
 			);
 			path = JSON;
@@ -214,7 +214,7 @@
 				77987C29254C02BC00B18BF6 /* County.swift */,
 				77987C2B254C02BC00B18BF6 /* Resource.swift */,
 				77987C2C254C02BC00B18BF6 /* Zone.swift */,
-				77987C2D254C02BC00B18BF6 /* Group.swift */,
+				77987C2D254C02BC00B18BF6 /* Team.swift */,
 				77987C2E254C02BC00B18BF6 /* League.swift */,
 				77987C2F254C02BC00B18BF6 /* Player.swift */,
 				77987C30254C02BC00B18BF6 /* Season.swift */,
@@ -354,7 +354,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				77987C33254C02BC00B18BF6 /* player.json in Resources */,
-				77987C35254C02BC00B18BF6 /* group.json in Resources */,
+				77987C35254C02BC00B18BF6 /* team.json in Resources */,
 				77987BF3254C016300B18BF6 /* Preview Assets.xcassets in Resources */,
 				77987BF0254C016300B18BF6 /* Assets.xcassets in Resources */,
 				77987C32254C02BC00B18BF6 /* league.json in Resources */,
@@ -385,7 +385,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77987C3B254C02BC00B18BF6 /* Group.swift in Sources */,
+				77987C3B254C02BC00B18BF6 /* Team.swift in Sources */,
 				77987CD32559101B00B18BF6 /* AppraiseList.swift in Sources */,
 				77987C3E254C02BC00B18BF6 /* Season.swift in Sources */,
 				77987C3C254C02BC00B18BF6 /* League.swift in Sources */,

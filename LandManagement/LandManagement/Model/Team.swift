@@ -11,13 +11,15 @@ import LeanCloud
 
 class Team: LCObject {
     
-// Specify properties to ignore (Realm won't persist these)
-    
-//  override static func ignoredProperties() -> [String] {
-//    return []
-//  }
     @objc dynamic var name = LCString("")
     @objc dynamic var league: League?
+    @objc dynamic var headman: Player?
     
-//    let players = Player.relationForKey("group")
+    override static func objectClassName() -> String {
+        return "Team"
+    }
+    
+    func updateWith(dic: Dictionary<String, Any>) {
+        self.name = LCString(dic["name"] as! String)
+    }
 }

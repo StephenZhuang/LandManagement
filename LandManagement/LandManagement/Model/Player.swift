@@ -11,32 +11,32 @@ import LeanCloud
 
 class Player: LCObject {
     
-// Specify properties to ignore (Realm won't persist these)
-    
-//  override static func ignoredProperties() -> [String] {
-//    return []
-//  }
-    
     /// 游戏名
-    dynamic var name = ""
+    @objc dynamic var name = LCString("")
     
     /// 游戏id
-    dynamic var playerId = 0
+    @objc dynamic var playerId = LCNumber(0)
     
     /// 势力值
-    dynamic var power = 0
+    @objc dynamic var power = LCNumber(0)
     
     /// 战功
-    dynamic var achievement = 0
+    @objc dynamic var achievement = LCNumber(0)
     
     /// 分组
-    dynamic var group: Group?
+    @objc dynamic var team: Team?
     
     /// 同盟
-    dynamic var league: League?
+    @objc dynamic var league: League?
     
-    /// 所有土地
-//    let resources = LinkingObjects(fromType: Resource.self, property: "owner")
+    override static func objectClassName() -> String {
+        return "Player"
+    }
     
-    
+    func updateWith(dic: Dictionary<String, Any>) {
+        self.name = LCString(dic["name"] as! String)
+        self.playerId = LCNumber(integerLiteral: dic["playerId"] as! Int)
+        self.power = LCNumber(integerLiteral: dic["power"] as! Int)
+        self.achievement = LCNumber(integerLiteral: dic["achievement"] as! Int)
+    }
 }

@@ -11,11 +11,9 @@ import LeanCloud
 
 class Resource: LCObject {
     
-// Specify properties to ignore (Realm won't persist these)
-    
-//  override static func ignoredProperties() -> [String] {
-//    return []
-//  }
+    override static func objectClassName() -> String {
+        return "Resource"
+    }
     enum ResourceType: String {
         case copper = "铜"
         case wood = "木"
@@ -28,10 +26,10 @@ class Resource: LCObject {
     @objc dynamic var resourceType: LCString = LCString(ResourceType.unknown.rawValue)
     
     /// 坐标
-    @objc dynamic var location = ""
+    @objc dynamic var location = LCString("")
     
     /// 等级
-    @objc dynamic var level = 0
+    @objc dynamic var level = LCNumber(0)
     
     /// 所有者
     @objc dynamic var owner: Player?
@@ -39,4 +37,12 @@ class Resource: LCObject {
     /// 所属郡
     @objc dynamic var county: County?
     
+    /// 是否违规
+    @objc dynamic var isIllegal: LCBool = LCBool(false)
+    
+    func updateWith(dic: Dictionary<String, Any>) {
+        self.resourceType = LCString(dic["sourceType"] as! String)
+        self.location = LCString(dic["location"] as! String)
+        self.level = LCNumber(integerLiteral: dic["level"] as! Int)
+    }
 }

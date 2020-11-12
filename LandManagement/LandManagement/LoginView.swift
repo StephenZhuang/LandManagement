@@ -10,6 +10,7 @@ import ToastUI
 import LeanCloud
 
 struct LoginView: View {
+    @EnvironmentObject var showingView: ShowingView
     @State var isPushed = false
     @State private var phone = "18112339163"
     @State private var password = ""
@@ -49,7 +50,7 @@ struct LoginView: View {
                 .padding()
             
             HStack {
-                NavigationLink(destination: ZoneListView(isPushed: $isPushed), isActive: $isPushed) {
+                NavigationLink(destination: ZoneListView(isPushed: $isPushed).environmentObject(showingView), isActive: $isPushed) {
                     EmptyView()
                 }
                 Button {

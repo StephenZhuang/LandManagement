@@ -10,6 +10,7 @@ import LeanCloud
 import SwiftUIRefresh
 
 struct ZoneListView: View {
+    @EnvironmentObject var showingView: ShowingView
     @Binding var isPushed: Bool
     @State var myZone: Zone?
 //    @State private var managedZones: [Zone]
@@ -20,9 +21,9 @@ struct ZoneListView: View {
     var body: some View {
         VStack {
             
-            NavigationLink(destination: LandManagementTabView(), isActive: $tabViewPushed) {
-                EmptyView()
-            }
+//            NavigationLink(destination: LandManagementTabView(), isActive: $tabViewPushed) {
+//                EmptyView()
+//            }
             List {
                 
                 Section(header: Text("我创建的")) {
@@ -30,13 +31,11 @@ struct ZoneListView: View {
                         
                         Button {
                             AppUserDefaults.selectedZone = myZone?.objectId?.stringValue ?? ""
-                            tabViewPushed = true
+//                            tabViewPushed = true
+                            self.showingView.viewId = .Tab
                         } label: {
                             Text(myZone!.name.stringValue ?? "")
                         }
-//                        NavigationLink(destination: LandManagementTabView()) {
-//                            Text(myZone!.name.stringValue ?? "")
-//                        }
                     }
                     if showAddButton {
                         Button {

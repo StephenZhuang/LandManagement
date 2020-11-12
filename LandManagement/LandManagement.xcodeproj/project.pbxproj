@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		778DB31A255CC5850062D52C /* AppRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778DB319255CC5850062D52C /* AppRootView.swift */; };
 		77987BEC254C016100B18BF6 /* LandManagementApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77987BEB254C016100B18BF6 /* LandManagementApp.swift */; };
 		77987BEE254C016100B18BF6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77987BED254C016100B18BF6 /* ContentView.swift */; };
 		77987BF0254C016300B18BF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77987BEF254C016300B18BF6 /* Assets.xcassets */; };
@@ -60,6 +61,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		778DB319255CC5850062D52C /* AppRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootView.swift; sourceTree = "<group>"; };
 		77987BE8254C016100B18BF6 /* LandManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LandManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77987BEB254C016100B18BF6 /* LandManagementApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandManagementApp.swift; sourceTree = "<group>"; };
 		77987BED254C016100B18BF6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				77987C872553DE0300B18BF6 /* RegisterView.swift */,
 				77987C9C2554F57D00B18BF6 /* ZoneListView.swift */,
 				77987CC825590FBE00B18BF6 /* LandManagementTabView.swift */,
+				778DB319255CC5850062D52C /* AppRootView.swift */,
 				77987CCD25590FDC00B18BF6 /* ResourceList.swift */,
 				77987CD22559101B00B18BF6 /* AppraiseList.swift */,
 				77987CD72559102D00B18BF6 /* SettingsView.swift */,
@@ -386,6 +389,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				77987C3B254C02BC00B18BF6 /* Team.swift in Sources */,
+				778DB31A255CC5850062D52C /* AppRootView.swift in Sources */,
 				77987CD32559101B00B18BF6 /* AppraiseList.swift in Sources */,
 				77987C3E254C02BC00B18BF6 /* Season.swift in Sources */,
 				77987C3C254C02BC00B18BF6 /* League.swift in Sources */,

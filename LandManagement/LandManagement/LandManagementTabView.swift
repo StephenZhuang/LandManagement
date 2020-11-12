@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LandManagementTabView: View {
     @State private var selection = 0
+    @EnvironmentObject var showView: ShowingView
     var body: some View {
 
         TabView(selection: $selection) {
@@ -29,16 +30,13 @@ struct LandManagementTabView: View {
             }.tag(1)
             
             NavigationView {
-                SettingsView()
+                SettingsView().environmentObject(showView)
             }
             .tabItem {
                 Image(systemName:"slider.horizontal.3")
                 Text("设置")
             }.tag(2)
         }
-        .navigationBarBackButtonHidden(true)
-        .navigationBarHidden(true)
-        .edgesIgnoringSafeArea([.top, .bottom])
     }
 }
 

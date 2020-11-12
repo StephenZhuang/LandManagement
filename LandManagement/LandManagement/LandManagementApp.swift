@@ -11,22 +11,22 @@ import LeanCloud
 @main
 struct LandManagementApp: SwiftUI.App {
     
+    var appStartView: AppViews = .Login
     init() {
         setupLeanCloud()
+        if LCApplication.default.currentUser != nil {
+            if AppUserDefaults.selectedZone.count > 0 {
+                appStartView = .Tab
+            } else {
+                appStartView = .ZoneList
+            }
+        } else {
+            appStartView = .Login
+        }
     }
     var body: some Scene {
         WindowGroup {
-            NavigationView {
-                if LCApplication.default.currentUser != nil {
-                    if AppUserDefaults.selectedZone.count > 0 {
-                        LandManagementTabView()
-                    } else {
-                        ZoneListView(isPushed: .constant(true))
-                    }
-                } else {
-                    LoginView()
-                }
-            }
+            AppRootView(showingView: ShowingView(showingView: appStartView))
         }
     }
 }

@@ -11,41 +11,20 @@ import LeanCloud
 struct ResourceList: View {
     private var selectedZone: Zone = Zone(objectId: AppUserDefaults.selectedZone)
     @State private var counties: [County] = []
-    @State private var resources: [Resource] = []
-    @State private var teams: [Team] = []
-    @State private var players: [Player] = []
-    @State private var leagues: [League] = []
+    @State private var dic: Dictionary<String, [Resource]> = Dictionary()
+
     var body: some View {
+        let keys = dic.map{$0.key}
+
         VStack {
             List {
-                Button {
-                    self.setupCounty()
-                } label: {
-                    Text("初始化county")
-                }
-
-                Button {
-                    self.setupResource()
-                } label: {
-                    Text("初始化resource")
-                }
-                
-                Button {
-                    self.setupLeague()
-                } label: {
-                    Text("初始化league")
-                }
-                
-                Button {
-                    self.setupTeam()
-                } label: {
-                    Text("初始化team")
-                }
-                
-                Button {
-                    self.setupPlayer()
-                } label: {
-                    Text("初始化player")
+                ForEach(keys, id: \.self) { key in
+                    let resources: [Resource] = dic[key]!
+                    Section(header: Text(key)) {
+                        ForEach(resources, id: \.self) { resource in
+                            ResourceRow(resource: resource)
+                        }
+                    }
                 }
             }
         }
@@ -60,12 +39,109 @@ struct ResourceList: View {
             switch result {
             case .success:
                 // todo 已刷新
+                self.fetchCounties()
                 break
             case .failure(error: let error):
                 print(error)
             }
         }
 
+    }
+    
+    func fetchCounties() {
+        do {
+            let query = LCQuery(className: "County")
+            try query.where("owner", .equalTo(selectedZone))
+            let _ = query.find { (result) in
+                
+                switch result {
+                case .success(objects: let objects):
+                    for object in objects {
+                        let county = object as! County
+                        self.counties.append(county)
+                    }
+//                    self.counties = objects as! [County]
+                    self.fetchResources()
+                case .failure(error: let error):
+                    print(error)
+                }
+            }
+        } catch {
+            print(error)
+        }
+    }
+    
+    func fetchResources() {
+        do {
+            let innerQuery = LCQuery(className: "County")
+            try innerQuery.where("owner", .equalTo(selectedZone))
+            let query = LCQuery(className: "Resource")
+            query.whereKey("county", .matchedQuery(innerQuery))
+            let _ = query.find { (result) in
+                
+                switch result {
+                case .success(objects: let objects):
+
+                    for county in self.counties {
+                        var resources: [Resource] = []
+                        for object in objects {
+                            let resource = object as! Resource
+                            if resource.county?.objectId == county.objectId {
+                                resources.append(resource)
+                            }
+                        }
+                        dic[county.name.stringValue!] = resources
+                    }
+                case .failure(error: let error):
+                    print(error)
+                }
+            }
+        } catch {
+            print(error)
+        }
+    }
+    
+}
+
+struct sampleView: View {
+    private var selectedZone: Zone = Zone(objectId: AppUserDefaults.selectedZone)
+    @State private var counties: [County] = []
+    @State private var resources: [Resource] = []
+    @State private var teams: [Team] = []
+    @State private var players: [Player] = []
+    @State private var leagues: [League] = []
+    var body: some View {
+        List {
+            Button {
+                self.setupCounty()
+            } label: {
+                Text("初始化county")
+            }
+
+            Button {
+                self.setupResource()
+            } label: {
+                Text("初始化resource")
+            }
+            
+            Button {
+                self.setupLeague()
+            } label: {
+                Text("初始化league")
+            }
+            
+            Button {
+                self.setupTeam()
+            } label: {
+                Text("初始化team")
+            }
+            
+            Button {
+                self.setupPlayer()
+            } label: {
+                Text("初始化player")
+            }
+        }
     }
     
     func setupCounty() {
@@ -222,7 +298,6 @@ struct ResourceList: View {
             print("读取本地数据出现错误!",error!)
         }
     }
-    
 }
 
 struct ResourceList_Previews: PreviewProvider {

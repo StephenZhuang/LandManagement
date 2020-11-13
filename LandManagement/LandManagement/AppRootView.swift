@@ -39,7 +39,7 @@ struct AppRootView: View {
                 }
             } else if showingView.viewId == .ZoneList {
                 NavigationView {
-                    ZoneListView(isPushed: .constant(true))
+                    ZoneListView()
                         .environmentObject(showingView)
                 }
             } else {

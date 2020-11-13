@@ -11,19 +11,14 @@ import SwiftUIRefresh
 
 struct ZoneListView: View {
     @EnvironmentObject var showingView: ShowingView
-    @Binding var isPushed: Bool
+//    @Binding var isPushed: Bool
     @State var myZone: Zone?
 //    @State private var managedZones: [Zone]
     
     @State private var showAddButton: Bool = false
     @State private var refreshing: Bool = false
-    @State var tabViewPushed = false
     var body: some View {
         VStack {
-            
-//            NavigationLink(destination: LandManagementTabView(), isActive: $tabViewPushed) {
-//                EmptyView()
-//            }
             List {
                 
                 Section(header: Text("我创建的")) {
@@ -31,7 +26,6 @@ struct ZoneListView: View {
                         
                         Button {
                             AppUserDefaults.selectedZone = myZone?.objectId?.stringValue ?? ""
-//                            tabViewPushed = true
                             self.showingView.viewId = .Tab
                         } label: {
                             Text(myZone!.name.stringValue ?? "")
@@ -103,6 +97,6 @@ struct ZoneListView: View {
 struct ZoneListView_Previews: PreviewProvider {
     static var previews: some View {
         let zone = Zone(objectId: "5fa511897f22434137eba27b")
-        ZoneListView(isPushed: .constant(true), myZone: zone)
+        ZoneListView(myZone: zone)
     }
 }

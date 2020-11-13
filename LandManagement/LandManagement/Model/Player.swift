@@ -29,6 +29,8 @@ class Player: LCObject {
     /// 同盟
     @objc dynamic var league: League?
     
+    @objc dynamic var copperProduction: LCNumber = LCNumber(0)
+    
     override static func objectClassName() -> String {
         return "Player"
     }

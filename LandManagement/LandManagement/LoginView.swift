@@ -50,7 +50,7 @@ struct LoginView: View {
                 .padding()
             
             HStack {
-                NavigationLink(destination: ZoneListView(isPushed: $isPushed).environmentObject(showingView), isActive: $isPushed) {
+                NavigationLink(destination: ZoneListView().environmentObject(showingView), isActive: $isPushed) {
                     EmptyView()
                 }
                 Button {

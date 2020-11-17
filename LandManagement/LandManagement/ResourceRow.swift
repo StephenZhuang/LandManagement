@@ -12,13 +12,16 @@ struct ResourceRow: View {
     var body: some View {
         HStack {
             Text("\(resource.level.intValue ?? 0)"+resource.resourceType.stringValue!)
+                .frame(width: 50, height: 30)
+            Spacer().frame(width: 50, height: 30)
+            Text(resource.location.stringValue!)
+            Spacer()
             if resource.isIllegal.boolValue! {
                 Image(systemName: "star")
             }
-            Spacer()
-            Text(resource.location.stringValue!)
-            Spacer()
-            Text(resource.owner?.name.stringValue ?? "")
+            if resource.owner != nil {
+                Text(resource.owner!.name.stringValue!)
+            }
 
         }
     }

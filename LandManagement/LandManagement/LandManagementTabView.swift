@@ -8,36 +8,52 @@
 import SwiftUI
 
 struct LandManagementTabView: View {
-    @State private var selection = 0
+    @State private var selection = Tabs.resource
     @EnvironmentObject var showView: ShowingView
     var body: some View {
-
-        TabView(selection: $selection) {
-            NavigationView {
-                ResourceList()
-            }
-            .tabItem {
-                Image(systemName:"command")
-                Text("资源")
-            }.tag(0)
-            
-            NavigationView {
-                AppraiseList()
-            }
-            .tabItem {
-                Image(systemName:"rectangle.and.paperclip")
-                Text("考核")
-            }.tag(1)
-            
-            NavigationView {
-                SettingsView().environmentObject(showView)
-            }
-            .tabItem {
-                Image(systemName:"slider.horizontal.3")
-                Text("设置")
-            }.tag(2)
+        NavigationView {
+            TabView(selection: $selection) {
+//                NavigationView {
+                    ResourceList()
+//                }
+                .tabItem {
+                    Image(systemName:"command")
+                    Text("资源")
+                }.tag(Tabs.resource)
+                
+//                NavigationView {
+                    AppraiseList()
+//                }
+                .tabItem {
+                    Image(systemName:"rectangle.and.paperclip")
+                    Text("考核")
+                }.tag(Tabs.appraise)
+                
+//                NavigationView {
+                    SettingsView().environmentObject(showView)
+//                }
+                .tabItem {
+                    Image(systemName:"slider.horizontal.3")
+                    Text("设置")
+                }.tag(Tabs.settings)
+            }.navigationBarTitle(returnNaviBarTitle(tabSelection: self.selection))
         }
     }
+    
+    enum Tabs{
+            case resource, appraise, settings
+        }
+        
+        func returnNaviBarTitle(tabSelection: Tabs) -> String{
+            switch tabSelection{
+            case .resource:
+                return "资源"
+            case .appraise:
+                return "考核"
+            case .settings:
+                return "设置"
+            }
+        }
 }
 
 struct TabView_Previews: PreviewProvider {
@@ -45,3 +61,7 @@ struct TabView_Previews: PreviewProvider {
         LandManagementTabView()
     }
 }
+
+//class TabBarState: ObservableObject {
+//   @Published var hidden : Bool = false
+//}

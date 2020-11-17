@@ -12,7 +12,7 @@ struct ResourceList: View {
     private var selectedZone: Zone = Zone(objectId: AppUserDefaults.selectedZone)
     @State private var counties: [County] = []
     @State private var dic: Dictionary<String, [Resource]> = Dictionary()
-
+    @State private var allResources: [Resource] = []
     var body: some View {
         let keys = dic.map{$0.key}
 
@@ -23,10 +23,13 @@ struct ResourceList: View {
                     Section(header: Text(key)) {
                         ForEach(resources, id: \.self) { resource in
                             ResourceRow(resource: resource)
+                                .onTapGesture {
+//                                    self.resourceAssign()
+                                }
                         }
                     }
                 }
-            }
+            }.listStyle(SidebarListStyle())
         }
         .onAppear() {
             self.fetchZone()
@@ -39,7 +42,11 @@ struct ResourceList: View {
             switch result {
             case .success:
                 // todo 已刷新
-                self.fetchCounties()
+                if self.allResources.count > 0 {
+                    
+                } else {                
+                    self.fetchCounties()
+                }
                 break
             case .failure(error: let error):
                 print(error)
@@ -77,6 +84,7 @@ struct ResourceList: View {
             try innerQuery.where("owner", .equalTo(selectedZone))
             let query = LCQuery(className: "Resource")
             query.whereKey("county", .matchedQuery(innerQuery))
+            query.whereKey("owner", .included)
             let _ = query.find { (result) in
                 
                 switch result {
@@ -88,6 +96,7 @@ struct ResourceList: View {
                             let resource = object as! Resource
                             if resource.county?.objectId == county.objectId {
                                 resources.append(resource)
+                                self.allResources.append(resource)
                             }
                         }
                         dic[county.name.stringValue!] = resources
@@ -99,6 +108,13 @@ struct ResourceList: View {
         } catch {
             print(error)
         }
+    }
+    
+    func resourceAssign() {
+        let resource = Resource(objectId: "5fab52e47f22434137f45ede")
+        let player = Player(objectId: "5fab8b1c7f22434137f48d1b")
+        resource.owner = player
+        _ = resource.save()
     }
     
 }

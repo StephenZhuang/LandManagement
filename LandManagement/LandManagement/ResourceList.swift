@@ -11,16 +11,15 @@ import LeanCloud
 struct ResourceList: View {
     private var selectedZone: Zone = Zone(objectId: AppUserDefaults.selectedZone)
     @State private var counties: [County] = []
-    @State private var dic: Dictionary<String, [Resource]> = Dictionary()
     @State private var allResources: [Resource] = []
+    @State private var data: [CountyAndResources] = []
     var body: some View {
-        let keys = dic.map{$0.key}
 
         VStack {
             List {
-                ForEach(keys, id: \.self) { key in
-                    let resources: [Resource] = dic[key]!
-                    Section(header: Text(key)) {
+                ForEach(data, id: \.self) { countyAndResources in
+                    let resources: [Resource] = countyAndResources.resources
+                    Section(header: Text(countyAndResources.county.name.stringValue!)) {
                         ForEach(resources, id: \.self) { resource in
                             ResourceRow(resource: resource)
                                 .onTapGesture {
@@ -67,7 +66,6 @@ struct ResourceList: View {
                         let county = object as! County
                         self.counties.append(county)
                     }
-//                    self.counties = objects as! [County]
                     self.fetchResources()
                 case .failure(error: let error):
                     print(error)
@@ -99,7 +97,8 @@ struct ResourceList: View {
                                 self.allResources.append(resource)
                             }
                         }
-                        dic[county.name.stringValue!] = resources
+                        let countyAndResources = CountyAndResources(county: county, resources: resources)
+                        data.append(countyAndResources)
                     }
                 case .failure(error: let error):
                     print(error)

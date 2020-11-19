@@ -45,6 +45,8 @@
 		77987CD82559102D00B18BF6 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77987CD72559102D00B18BF6 /* SettingsView.swift */; };
 		77E7CF0025621FC100F84C2F /* PlayerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E7CEFF25621FC100F84C2F /* PlayerList.swift */; };
 		77E7CF1F25636FAE00F84C2F /* TeamAndPlayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E7CF1E25636FAE00F84C2F /* TeamAndPlayers.swift */; };
+		77E7CF242563AA5200F84C2F /* CountyAndReources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E7CF232563AA5200F84C2F /* CountyAndReources.swift */; };
+		77E7CF292563AC0200F84C2F /* LeagueAndPlayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E7CF282563AC0200F84C2F /* LeagueAndPlayers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +108,8 @@
 		77987CD72559102D00B18BF6 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		77E7CEFF25621FC100F84C2F /* PlayerList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerList.swift; sourceTree = "<group>"; };
 		77E7CF1E25636FAE00F84C2F /* TeamAndPlayers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamAndPlayers.swift; sourceTree = "<group>"; };
+		77E7CF232563AA5200F84C2F /* CountyAndReources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountyAndReources.swift; sourceTree = "<group>"; };
+		77E7CF282563AC0200F84C2F /* LeagueAndPlayers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueAndPlayers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,6 +237,8 @@
 				77987C2F254C02BC00B18BF6 /* Player.swift */,
 				77987C30254C02BC00B18BF6 /* Season.swift */,
 				77E7CF1E25636FAE00F84C2F /* TeamAndPlayers.swift */,
+				77E7CF232563AA5200F84C2F /* CountyAndReources.swift */,
+				77E7CF282563AC0200F84C2F /* LeagueAndPlayers.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -405,10 +411,12 @@
 				778DB31A255CC5850062D52C /* AppRootView.swift in Sources */,
 				77987CD32559101B00B18BF6 /* AppraiseList.swift in Sources */,
 				77987C3E254C02BC00B18BF6 /* Season.swift in Sources */,
+				77E7CF292563AC0200F84C2F /* LeagueAndPlayers.swift in Sources */,
 				77E7CF0025621FC100F84C2F /* PlayerList.swift in Sources */,
 				77987C3C254C02BC00B18BF6 /* League.swift in Sources */,
 				77987C962554DC6100B18BF6 /* AppUserDefaults.swift in Sources */,
 				77987CD82559102D00B18BF6 /* SettingsView.swift in Sources */,
+				77E7CF242563AA5200F84C2F /* CountyAndReources.swift in Sources */,
 				77987C37254C02BC00B18BF6 /* County.swift in Sources */,
 				77987C982554DC6100B18BF6 /* UserDetaultWrapper.swift in Sources */,
 				77987BEE254C016100B18BF6 /* ContentView.swift in Sources */,

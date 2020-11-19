@@ -30,22 +30,33 @@ struct AppraiseList: View {
                     let players = leagueAndPlayers.players
                     HStack {
                         Text("名字")
+                            .frame(width: 110, height: 30, alignment: .leading)
+
                         Spacer()
                         Text("势力值")
+                            .frame(width: 60)
                         Spacer()
                         Text("战功")
+                            .frame(width: 60)
                         Spacer()
                         Text("铜产")
+                            .frame(width: 50)
                     }
                     ForEach(players, id: \.self) { player in
                         HStack {
+                            
                             Text(player.name.stringValue!)
+                                .frame(width: 110, height: 30, alignment: .leading)
+
                             Spacer()
                             Text("\(player.power.intValue!)")
+                                .frame(width: 60)
                             Spacer()
-                            Text("\(player.achievement.intValue!)")
+                            Text(getShortAchivement(achivement: player.achievement.intValue!))
+                                .frame(width: 60)
                             Spacer()
                             Text("\(player.copperProduction.intValue!)")
+                                .frame(width: 50)
                         }
                     }
                 }
@@ -57,11 +68,22 @@ struct AppraiseList: View {
         }
     }
     
+    func getShortAchivement(achivement: Int) -> String {
+        var short = ""
+        if achivement > 10000 {
+            short = "\(achivement / 10000)万"
+        } else {
+            short = "\(achivement)"
+        }
+        return short
+    }
+    
     func fetchPlayers() {
         do {
             let innerQuery = LCQuery(className: "League")
             try innerQuery.where("owner", .equalTo(self.selectedZone))
             let query = LCQuery(className: "Player")
+            query.whereKey("achievement", .descending)
             query.whereKey("league", .matchedQuery(innerQuery))
             let _ = query.find { (result) in
                 

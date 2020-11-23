@@ -13,26 +13,20 @@ struct LandManagementTabView: View {
     var body: some View {
         NavigationView {
             TabView(selection: $selection) {
-//                NavigationView {
-                    ResourceList()
-//                }
-                .tabItem {
+                ResourceList().tabItem {
                     Image(systemName:"command")
                     Text("资源")
                 }.tag(Tabs.resource)
                 
-//                NavigationView {
-                    AppraiseList()
-//                }
-                .tabItem {
-                    Image(systemName:"rectangle.and.paperclip")
-                    Text("考核")
-                }.tag(Tabs.appraise)
+                AppraiseList()
+                    .environmentObject(DataStore.shared)
+                    .tabItem {
+                        Image(systemName:"rectangle.and.paperclip")
+                        Text("考核")
+                    }
+                    .tag(Tabs.appraise)
                 
-//                NavigationView {
-                    SettingsView().environmentObject(showView)
-//                }
-                .tabItem {
+                SettingsView().environmentObject(showView).tabItem {
                     Image(systemName:"slider.horizontal.3")
                     Text("设置")
                 }.tag(Tabs.settings)

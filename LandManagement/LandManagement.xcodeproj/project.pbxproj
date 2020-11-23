@@ -47,6 +47,10 @@
 		77E7CF1F25636FAE00F84C2F /* TeamAndPlayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E7CF1E25636FAE00F84C2F /* TeamAndPlayers.swift */; };
 		77E7CF242563AA5200F84C2F /* CountyAndReources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E7CF232563AA5200F84C2F /* CountyAndReources.swift */; };
 		77E7CF292563AC0200F84C2F /* LeagueAndPlayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E7CF282563AC0200F84C2F /* LeagueAndPlayers.swift */; };
+		77E7CF2E256669F500F84C2F /* SelectPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E7CF2D256669F500F84C2F /* SelectPlayerView.swift */; };
+		77E7CF3325674F4000F84C2F /* PlayerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E7CF3225674F4000F84C2F /* PlayerDetailView.swift */; };
+		77E7CF3825679D8000F84C2F /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E7CF3725679D8000F84C2F /* DataStore.swift */; };
+		77E7CF3D2567B31A00F84C2F /* LeagueAndTeams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E7CF3C2567B31A00F84C2F /* LeagueAndTeams.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +114,10 @@
 		77E7CF1E25636FAE00F84C2F /* TeamAndPlayers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamAndPlayers.swift; sourceTree = "<group>"; };
 		77E7CF232563AA5200F84C2F /* CountyAndReources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountyAndReources.swift; sourceTree = "<group>"; };
 		77E7CF282563AC0200F84C2F /* LeagueAndPlayers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueAndPlayers.swift; sourceTree = "<group>"; };
+		77E7CF2D256669F500F84C2F /* SelectPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPlayerView.swift; sourceTree = "<group>"; };
+		77E7CF3225674F4000F84C2F /* PlayerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailView.swift; sourceTree = "<group>"; };
+		77E7CF3725679D8000F84C2F /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
+		77E7CF3C2567B31A00F84C2F /* LeagueAndTeams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueAndTeams.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +191,8 @@
 				77987CD72559102D00B18BF6 /* SettingsView.swift */,
 				77186F87255E81AD00818473 /* OrganizationView.swift */,
 				77E7CEFF25621FC100F84C2F /* PlayerList.swift */,
+				77E7CF2D256669F500F84C2F /* SelectPlayerView.swift */,
+				77E7CF3225674F4000F84C2F /* PlayerDetailView.swift */,
 			);
 			path = LandManagement;
 			sourceTree = "<group>";
@@ -239,6 +249,8 @@
 				77E7CF1E25636FAE00F84C2F /* TeamAndPlayers.swift */,
 				77E7CF232563AA5200F84C2F /* CountyAndReources.swift */,
 				77E7CF282563AC0200F84C2F /* LeagueAndPlayers.swift */,
+				77E7CF3C2567B31A00F84C2F /* LeagueAndTeams.swift */,
+				77E7CF3725679D8000F84C2F /* DataStore.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -411,6 +423,7 @@
 				778DB31A255CC5850062D52C /* AppRootView.swift in Sources */,
 				77987CD32559101B00B18BF6 /* AppraiseList.swift in Sources */,
 				77987C3E254C02BC00B18BF6 /* Season.swift in Sources */,
+				77E7CF3D2567B31A00F84C2F /* LeagueAndTeams.swift in Sources */,
 				77E7CF292563AC0200F84C2F /* LeagueAndPlayers.swift in Sources */,
 				77E7CF0025621FC100F84C2F /* PlayerList.swift in Sources */,
 				77987C3C254C02BC00B18BF6 /* League.swift in Sources */,
@@ -419,7 +432,9 @@
 				77E7CF242563AA5200F84C2F /* CountyAndReources.swift in Sources */,
 				77987C37254C02BC00B18BF6 /* County.swift in Sources */,
 				77987C982554DC6100B18BF6 /* UserDetaultWrapper.swift in Sources */,
+				77E7CF3825679D8000F84C2F /* DataStore.swift in Sources */,
 				77987BEE254C016100B18BF6 /* ContentView.swift in Sources */,
+				77E7CF3325674F4000F84C2F /* PlayerDetailView.swift in Sources */,
 				77186F88255E81AD00818473 /* OrganizationView.swift in Sources */,
 				77987C39254C02BC00B18BF6 /* Resource.swift in Sources */,
 				77987BEC254C016100B18BF6 /* LandManagementApp.swift in Sources */,
@@ -427,6 +442,7 @@
 				77987C882553DE0300B18BF6 /* RegisterView.swift in Sources */,
 				77987CC925590FBE00B18BF6 /* LandManagementTabView.swift in Sources */,
 				77987C972554DC6100B18BF6 /* Key.swift in Sources */,
+				77E7CF2E256669F500F84C2F /* SelectPlayerView.swift in Sources */,
 				77987CCE25590FDC00B18BF6 /* ResourceList.swift in Sources */,
 				77987C3D254C02BC00B18BF6 /* Player.swift in Sources */,
 				77186F83255E735200818473 /* ResourceRow.swift in Sources */,

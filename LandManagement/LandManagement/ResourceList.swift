@@ -13,6 +13,7 @@ struct ResourceList: View {
     @State private var counties: [County] = []
     @State private var allResources: [Resource] = []
     @State private var data: [CountyAndResources] = []
+    @State private var isActionSheet = false
     var body: some View {
 
         VStack {
@@ -21,14 +22,31 @@ struct ResourceList: View {
                     let resources: [Resource] = countyAndResources.resources
                     Section(header: Text(countyAndResources.county.name.stringValue!)) {
                         ForEach(resources, id: \.self) { resource in
-                            ResourceRow(resource: resource)
-                                .onTapGesture {
-//                                    self.resourceAssign()
+                            if resource.owner == nil {
+                                NavigationLink(destination: SelectPlayerView()) {
+                                    ResourceRow(resource: resource)
                                 }
+                            } else {
+                                ResourceRow(resource: resource)
+                                    .onTapGesture {
+                                        isActionSheet = true
+                                    }
+                            }
                         }
                     }
                 }
             }.listStyle(SidebarListStyle())
+            .actionSheet(isPresented: $isActionSheet, content: { //此处为ActionSheet的文本与事件
+                ActionSheet(title: Text("对地块操作"), buttons: [
+                    .default(Text("标记违规"), action: {
+                        print("Save")
+                    }),
+                    .destructive(Text("没收"), action: {
+                        print("Delete")
+                    }),
+                    .cancel(Text("取消"))
+                    ])
+            })
         }
         .onAppear() {
             self.fetchZone()
@@ -114,6 +132,10 @@ struct ResourceList: View {
         let player = Player(objectId: "5fab8b1c7f22434137f48d1b")
         resource.owner = player
         _ = resource.save()
+    }
+    
+    func showSheet() {
+        
     }
     
 }

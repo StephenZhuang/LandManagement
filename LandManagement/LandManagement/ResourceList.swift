@@ -14,6 +14,7 @@ struct ResourceList: View {
     @State private var allResources: [Resource] = []
     @State private var data: [CountyAndResources] = []
     @State private var isActionSheet = false
+    
     var body: some View {
 
         VStack {
@@ -23,7 +24,9 @@ struct ResourceList: View {
                     Section(header: Text(countyAndResources.county.name.stringValue!)) {
                         ForEach(resources, id: \.self) { resource in
                             if resource.owner == nil {
-                                NavigationLink(destination: SelectPlayerView()) {
+                                NavigationLink(destination: OrganizationView(viewType: .select, callback: { (player) in
+                                    
+                                }).environmentObject(DataStore.shared)) {
                                     ResourceRow(resource: resource)
                                 }
                             } else {

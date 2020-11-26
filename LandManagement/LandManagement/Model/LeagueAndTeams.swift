@@ -6,7 +6,7 @@
 //
 
 import Foundation
-struct LeagueAndTeams {
+struct LeagueAndTeams: Hashable {
     var league: League
-    var teams: [Team]
+    var teamAndPlayers: [TeamAndPlayers]
 }

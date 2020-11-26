@@ -8,52 +8,100 @@
 import SwiftUI
 import LeanCloud
 
+enum OrganizationViewType {
+    case showDetail
+    case select
+}
+
+typealias SelectPlayerCallback = (Player) -> ()
+
 struct OrganizationView: View {
-    private var selectedZone: Zone = Zone(objectId: AppUserDefaults.selectedZone)
-    @State private var leagues: [League] = []
+    @EnvironmentObject var dataStore: DataStore
+    @State private var data: [LeagueAndTeams] = [LeagueAndTeams(league: League(), teamAndPlayers: [])]
+    @State private var selection = LeagueAndTeams(league: League(), teamAndPlayers: [])
+    var viewType: OrganizationViewType
+    var callback: SelectPlayerCallback?
+    @State var isDetailActive = false
+    @State var selectedPlayer = Player()
+    @Environment(\.presentationMode) var presentation
     
+    private let columns = [GridItem(.adaptive(minimum: 85))]
     var body: some View {
-        VStack {
-            List {
-                ForEach(leagues, id: \.self) { league in
-                    NavigationLink(destination: PlayerList(league: league)) {
-                        Text("\(league.serverId.intValue!) "+league.name.stringValue!)
+        NavigationLink(destination: PlayerDetailView(player: selectedPlayer), isActive: $isDetailActive) {
+            EmptyView()
+        }
+        TabView(selection: self.$selection) {
+            ForEach(data, id: \.self) { leagueAndTeams in
+                ScrollView {
+                    LazyVGrid(columns: columns, spacing: 20) {
+                        ForEach(leagueAndTeams.teamAndPlayers, id: \.self) { teamAndPlayers in
+                            Section(header: HStack{
+                                Text(teamAndPlayers.team.name.stringValue!)
+                                    .padding()
+                                Spacer()
+                                Text("\(teamAndPlayers.players.count)人")
+                                    .padding()
+                            }) {
+                                ForEach(teamAndPlayers.players, id: \.self) { player in
+                                        cell(player: player)
+                                            .onTapGesture {
+                                                if viewType == .showDetail {
+                                                    selectedPlayer = player
+                                                    isDetailActive = true
+                                                } else {
+                                                    if callback != nil {
+                                                        callback!(player)
+                                                        self.presentation.wrappedValue.dismiss()
+                                                    }
+                                                }
+                                            }
+                                }
+                            }
+                        }
                     }
-                }
-            }.listStyle(InsetGroupedListStyle())
-        }.navigationBarTitle("盟列表")
-        .onAppear() {
-            if leagues.count <= 0 {
-                self.fetchLeagues()
+                }.tag(leagueAndTeams)
             }
+        }.tabViewStyle(PageTabViewStyle())
+        .navigationBarTitle(self.selection.league.name.stringValue!, displayMode: .inline)
+        .onAppear() {
+            self.orderData()
         }
     }
     
-    func fetchLeagues() {
-        do {
-            let query = LCQuery(className: "League")
-            try query.where("owner", .equalTo(selectedZone))
-            let _ = query.find { (result) in
-                
-                switch result {
-                case .success(objects: let objects):
-                    for object in objects {
-                        let league = object as! League
-                        self.leagues.append(league)
+    func cell(player: Player) -> some View {
+        return RoundedRectangle(cornerRadius: 10)
+                .fill(Color.green)
+                .frame(width: 80, height: 50)
+                .overlay(Text(player.name.stringValue!).foregroundColor(Color.white))
+    }
+    
+    func orderData() {
+        data = []
+        for league in dataStore.leagues {
+            var teams: [TeamAndPlayers] = []
+            for team in dataStore.teams {
+                if team.league == league {
+                    var players: [Player] = []
+                    for player in dataStore.players {
+                        if player.team == team {
+                            players.append(player)
+                        }
                     }
-
-                case .failure(error: let error):
-                    print(error)
+                    let teamAndPlayers = TeamAndPlayers(team: team, players: players)
+                    teams.append(teamAndPlayers)
                 }
             }
-        } catch {
-            print(error)
+            let leagueAndTeams = LeagueAndTeams(league: league, teamAndPlayers: teams)
+            data.append(leagueAndTeams)
+        }
+        if data.count > 0 {
+            self.selection = data[0]
         }
     }
 }
 
 struct OrganizationView_Previews: PreviewProvider {
     static var previews: some View {
-        OrganizationView()
+        OrganizationView(viewType: .showDetail)
     }
 }

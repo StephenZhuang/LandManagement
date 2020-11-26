@@ -10,12 +10,12 @@ import LeanCloud
 
 struct SettingsView: View {
     @EnvironmentObject var showingView: ShowingView
-    
+    @State var isPushed = false
     var body: some View {
         VStack {
             List {
                 Section {
-                    NavigationLink("组织架构", destination: OrganizationView())
+                    NavigationLink("组织架构", destination: OrganizationView(viewType: .showDetail, callback:nil).environmentObject(DataStore.shared))
                 }
                 Section {
                     Button {
@@ -28,7 +28,6 @@ struct SettingsView: View {
             }.listStyle(InsetGroupedListStyle())
         }
         .navigationBarTitle("设置")
-        
     }
     
     func logout() {

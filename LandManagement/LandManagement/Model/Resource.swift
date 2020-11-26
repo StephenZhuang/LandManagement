@@ -45,4 +45,21 @@ class Resource: LCObject {
         self.location = LCString(dic["location"] as! String)
         self.level = LCNumber(integerLiteral: dic["level"] as! Int)
     }
+    
+    func produceForLevel(level: Int) -> Int {
+        switch level {
+        case 6:
+            return 100
+        case 7:
+            return 200
+        case 8:
+            return 300
+        case 9:
+            return 400
+        case 10:
+            return 500
+        default:
+            return 0
+        }
+    }
 }

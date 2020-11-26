@@ -14,6 +14,7 @@ struct ResourceList: View {
     @State private var allResources: [Resource] = []
     @State private var data: [CountyAndResources] = []
     @State private var isActionSheet = false
+    @State private var selectedResource: Resource = Resource()
     
     var body: some View {
 
@@ -25,31 +26,19 @@ struct ResourceList: View {
                         ForEach(resources, id: \.self) { resource in
                             if resource.owner == nil {
                                 NavigationLink(destination: OrganizationView(viewType: .select, callback: { (player) in
-                                    
+                                    resourceAssign(resource: resource, player: player)
                                 }).environmentObject(DataStore.shared)) {
                                     ResourceRow(resource: resource)
                                 }
                             } else {
-                                ResourceRow(resource: resource)
-                                    .onTapGesture {
-                                        isActionSheet = true
-                                    }
+                                ResourceRow(resource: resource) {
+                                    self.orderData()
+                                }
                             }
                         }
                     }
                 }
             }.listStyle(SidebarListStyle())
-            .actionSheet(isPresented: $isActionSheet, content: { //此处为ActionSheet的文本与事件
-                ActionSheet(title: Text("对地块操作"), buttons: [
-                    .default(Text("标记违规"), action: {
-                        print("Save")
-                    }),
-                    .destructive(Text("没收"), action: {
-                        print("Delete")
-                    }),
-                    .cancel(Text("取消"))
-                    ])
-            })
         }
         .onAppear() {
             self.fetchZone()
@@ -130,16 +119,45 @@ struct ResourceList: View {
         }
     }
     
-    func resourceAssign() {
-        let resource = Resource(objectId: "5fab52e47f22434137f45ede")
-        let player = Player(objectId: "5fab8b1c7f22434137f48d1b")
-        resource.owner = player
-        _ = resource.save()
+    func orderData() {
+        data = []
+        DispatchQueue.global().async {
+            for county in self.counties {
+                var resources: [Resource] = []
+                for resource in self.allResources {
+                    if resource.county?.objectId == county.objectId {
+                        resources.append(resource)
+                    }
+                }
+                let countyAndResources = CountyAndResources(county: county, resources: resources)
+                data.append(countyAndResources)
+            }
+        }
     }
     
-    func showSheet() {
-        
+    func resourceAssign(resource: Resource, player: Player) {
+        resource.owner = player
+        _ = resource.save { result in
+            switch result {
+            case .success:
+                // 成功保存之后，执行其他逻辑
+                do {
+                    try player.increase("copperProduction", by: resource.produceForLevel(level: resource.level.intValue!))
+                    _ = player.save()
+                    self.orderData()
+                } catch {
+                    print(error)
+                }
+                break
+            case .failure(error: let error):
+                // 异常处理
+                print(error)
+            }
+        }
     }
+    
+    
+    
     
 }
 

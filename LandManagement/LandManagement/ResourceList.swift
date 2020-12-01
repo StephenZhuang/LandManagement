@@ -14,7 +14,6 @@ struct ResourceList: View {
     @State private var allResources: [Resource] = []
     @State private var data: [CountyAndResources] = []
     @State private var isActionSheet = false
-    @State private var selectedResource: Resource = Resource()
     
     var body: some View {
 

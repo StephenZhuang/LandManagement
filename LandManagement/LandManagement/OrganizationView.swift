@@ -27,7 +27,7 @@ struct OrganizationView: View {
     
     private let columns = [GridItem(.adaptive(minimum: 85))]
     var body: some View {
-        NavigationLink(destination: PlayerDetailView(player: selectedPlayer), isActive: $isDetailActive) {
+        NavigationLink(destination: PlayerDetailView(player: selectedPlayer).environmentObject(DataStore.shared), isActive: $isDetailActive) {
             EmptyView()
         }
         TabView(selection: self.$selection) {

@@ -21,3 +21,12 @@ extension String {
     }
     
 }
+
+extension Array where Element: Equatable {
+    mutating func remove(_ object: Element) {
+        if let index = firstIndex(of: object) {
+            remove(at: index)
+        }
+    }
+}
+

@@ -39,28 +39,39 @@ struct AppraiseList: View {
                         Spacer()
                         Text("铜产")
                             .frame(width: 50)
+                            .padding()
                     }
                     ForEach(players, id: \.self) { player in
-                        HStack {
-                            
-                            Text(player.name.stringValue!)
-                                .frame(width: 110, height: 30, alignment: .leading)
-
-                            Spacer()
-                            Text("\(player.power.intValue!)")
-                                .frame(width: 60)
-                            Spacer()
-                            Text(getShortAchivement(achivement: player.achievement.intValue!))
-                                .frame(width: 60)
-                            Spacer()
-                            Text("\(player.copperProduction.intValue!)")
-                                .frame(width: 50)
+                        NavigationLink(destination: PlayerDetailView(player: player).environmentObject(DataStore.shared)) {
+                            HStack {
+                                
+                                Text(player.name.stringValue!)
+                                    .frame(width: 110, height: 30, alignment: .leading)
+                                
+                                Spacer()
+                                Text("\(player.power.intValue!)")
+                                    .frame(width: 60)
+                                Spacer()
+                                Text(getShortAchivement(achivement: player.achievement.intValue!))
+                                    .frame(width: 60)
+                                Spacer()
+                                Text("\(player.copperProduction.intValue!)")
+                                    .frame(width: 50)
+                            }
                         }
                     }
                 }
             }
         }.onAppear() {
-            self.orderData()
+            _ = LCObject.fetch(dataStore.players, completion: { (result) in
+                switch result {
+                case .success:
+                    self.orderData()
+                    break
+                case .failure(error: let error):
+                    print(error)
+                }
+            })
         }
     }
     

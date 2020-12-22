@@ -13,10 +13,12 @@ struct LandManagementTabView: View {
     var body: some View {
         NavigationView {
             TabView(selection: $selection) {
-                ResourceList().tabItem {
-                    Image(systemName:"command")
-                    Text("资源")
-                }.tag(Tabs.resource)
+                ResourceList()
+                    .environmentObject(DataStore.shared)
+                    .tabItem {
+                        Image(systemName:"command")
+                        Text("资源")
+                    }.tag(Tabs.resource)
                 
                 AppraiseList()
                     .environmentObject(DataStore.shared)

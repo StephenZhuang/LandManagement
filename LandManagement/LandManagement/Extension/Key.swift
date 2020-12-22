@@ -11,5 +11,6 @@ import Foundation
 struct Key {
     struct NotificationKey {
         static let needLogin = "kNeedLogin"
+        static let needUpdateResource = "needUpdateResource"
     }
 }

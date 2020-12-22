@@ -9,17 +9,17 @@ import SwiftUI
 import LeanCloud
 
 struct ResourceList: View {
-    private var selectedZone: Zone = Zone(objectId: AppUserDefaults.selectedZone)
-    @State private var counties: [County] = []
-    @State private var allResources: [Resource] = []
-    @State private var data: [CountyAndResources] = []
-    @State private var isActionSheet = false
+//    private var selectedZone: Zone = Zone(objectId: AppUserDefaults.selectedZone)
+//    @State private var counties: [County] = []
+//    @State private var allResources: [Resource] = []
+//    @State private var data: [CountyAndResources] = []
+    @EnvironmentObject var dataStore: DataStore
     
     var body: some View {
 
         VStack {
             List {
-                ForEach(data, id: \.self) { countyAndResources in
+                ForEach(dataStore.resourceData, id: \.self) { countyAndResources in
                     let resources: [Resource] = countyAndResources.resources
                     Section(header: Text(countyAndResources.county.name.stringValue!)) {
                         ForEach(resources, id: \.self) { resource in
@@ -31,7 +31,7 @@ struct ResourceList: View {
                                 }
                             } else {
                                 ResourceRow(resource: resource) {
-                                    self.orderData()
+                                    dataStore.orderResourceData()
                                 }
                             }
                         }
@@ -40,99 +40,104 @@ struct ResourceList: View {
             }.listStyle(SidebarListStyle())
         }
         .onAppear() {
-            self.fetchZone()
+//            self.fetchZone()
+//            if dataStore.allResources.count <= 0 {
+                dataStore.fetchCounties {
+                    dataStore.orderResourceData()
+                }
+//            }
         }
         .navigationBarTitle("资源管理")
     }
     
-    func fetchZone() {
-        _ = selectedZone.fetch { result in
-            switch result {
-            case .success:
-                // todo 已刷新
-                if self.allResources.count > 0 {
-                    
-                } else {                
-                    self.fetchCounties()
-                }
-                break
-            case .failure(error: let error):
-                print(error)
-            }
-        }
-
-    }
+//    func fetchZone() {
+//        _ = selectedZone.fetch { result in
+//            switch result {
+//            case .success:
+//                // todo 已刷新
+//                if self.allResources.count > 0 {
+//
+//                } else {
+//                    self.fetchCounties()
+//                }
+//                break
+//            case .failure(error: let error):
+//                print(error)
+//            }
+//        }
+//
+//    }
+//
+//    func fetchCounties() {
+//        do {
+//            let query = LCQuery(className: "County")
+//            try query.where("owner", .equalTo(selectedZone))
+//            let _ = query.find { (result) in
+//
+//                switch result {
+//                case .success(objects: let objects):
+//                    for object in objects {
+//                        let county = object as! County
+//                        self.counties.append(county)
+//                    }
+//                    self.fetchResources()
+//                case .failure(error: let error):
+//                    print(error)
+//                }
+//            }
+//        } catch {
+//            print(error)
+//        }
+//    }
+//
+//    func fetchResources() {
+//        do {
+//            let innerQuery = LCQuery(className: "County")
+//            try innerQuery.where("owner", .equalTo(selectedZone))
+//            let query = LCQuery(className: "Resource")
+//            query.whereKey("county", .matchedQuery(innerQuery))
+//            query.whereKey("owner", .included)
+//            let _ = query.find { (result) in
+//
+//                switch result {
+//                case .success(objects: let objects):
+//
+//                    for county in self.counties {
+//                        var resources: [Resource] = []
+//                        for object in objects {
+//                            let resource = object as! Resource
+//                            if resource.county?.objectId == county.objectId {
+//                                resources.append(resource)
+//                                self.allResources.append(resource)
+//                            }
+//                        }
+//                        let countyAndResources = CountyAndResources(county: county, resources: resources)
+//                        data.append(countyAndResources)
+//                    }
+//                case .failure(error: let error):
+//                    print(error)
+//                }
+//            }
+//        } catch {
+//            print(error)
+//        }
+//    }
     
-    func fetchCounties() {
-        do {
-            let query = LCQuery(className: "County")
-            try query.where("owner", .equalTo(selectedZone))
-            let _ = query.find { (result) in
-                
-                switch result {
-                case .success(objects: let objects):
-                    for object in objects {
-                        let county = object as! County
-                        self.counties.append(county)
-                    }
-                    self.fetchResources()
-                case .failure(error: let error):
-                    print(error)
-                }
-            }
-        } catch {
-            print(error)
-        }
-    }
-    
-    func fetchResources() {
-        do {
-            let innerQuery = LCQuery(className: "County")
-            try innerQuery.where("owner", .equalTo(selectedZone))
-            let query = LCQuery(className: "Resource")
-            query.whereKey("county", .matchedQuery(innerQuery))
-            query.whereKey("owner", .included)
-            let _ = query.find { (result) in
-                
-                switch result {
-                case .success(objects: let objects):
-
-                    for county in self.counties {
-                        var resources: [Resource] = []
-                        for object in objects {
-                            let resource = object as! Resource
-                            if resource.county?.objectId == county.objectId {
-                                resources.append(resource)
-                                self.allResources.append(resource)
-                            }
-                        }
-                        let countyAndResources = CountyAndResources(county: county, resources: resources)
-                        data.append(countyAndResources)
-                    }
-                case .failure(error: let error):
-                    print(error)
-                }
-            }
-        } catch {
-            print(error)
-        }
-    }
-    
-    func orderData() {
-        data = []
-        DispatchQueue.global().async {
-            for county in self.counties {
-                var resources: [Resource] = []
-                for resource in self.allResources {
-                    if resource.county?.objectId == county.objectId {
-                        resources.append(resource)
-                    }
-                }
-                let countyAndResources = CountyAndResources(county: county, resources: resources)
-                data.append(countyAndResources)
-            }
-        }
-    }
+//    func orderData() {
+//        data = []
+//        DispatchQueue.global().async {
+//            for county in dataStore.counties {
+//                var resources: [Resource] = []
+//                for resource in dataStore.allResources {
+//                    if resource.county?.objectId == county.objectId {
+//                        resources.append(resource)
+//                    }
+//                }
+//                let countyAndResources = CountyAndResources(county: county, resources: resources)
+//                data.append(countyAndResources)
+//            }
+//        }
+//    }
     
     func resourceAssign(resource: Resource, player: Player) {
         resource.owner = player
@@ -143,7 +148,7 @@ struct ResourceList: View {
                 do {
                     try player.increase("copperProduction", by: resource.produceForLevel(level: resource.level.intValue!))
                     _ = player.save()
-                    self.orderData()
+                    dataStore.orderResourceData()
                 } catch {
                     print(error)
                 }
@@ -154,10 +159,6 @@ struct ResourceList: View {
             }
         }
     }
-    
-    
-    
-    
 }
 
 struct sampleView: View {

@@ -14,6 +14,9 @@ class DataStore: ObservableObject {
     @Published var leagues: [League] = []
     @Published var teams: [Team] = []
     @Published var players: [Player] = []
+    @Published var counties: [County] = []
+    @Published var allResources: [Resource] = []
+    @Published var resourceData: [CountyAndResources] = []
     
     init() {
         self.fetchLeagues()
@@ -91,5 +94,79 @@ class DataStore: ObservableObject {
         } catch {
             print(error)
         }
+    }
+    
+    func fetchCounties(callback: @escaping SuccessCallback) {
+        self.counties = []
+        do {
+            let query = LCQuery(className: "County")
+            try query.where("owner", .equalTo(selectedZone))
+            let _ = query.find { (result) in
+                
+                switch result {
+                case .success(objects: let objects):
+                    for object in objects {
+                        let county = object as! County
+                        self.counties.append(county)
+                    }
+                    self.fetchResources(callback: callback)
+                case .failure(error: let error):
+                    print(error)
+                }
+            }
+        } catch {
+            print(error)
+        }
+    }
+    
+    func fetchResources(callback: @escaping SuccessCallback) {
+        self.allResources = []
+        do {
+            let innerQuery = LCQuery(className: "County")
+            try innerQuery.where("owner", .equalTo(selectedZone))
+            let query = LCQuery(className: "Resource")
+            query.whereKey("county", .matchedQuery(innerQuery))
+            query.whereKey("owner", .included)
+            let _ = query.find { (result) in
+                
+                switch result {
+                case .success(objects: let objects):
+
+//                    for county in self.counties {
+//                        var resources: [Resource] = []
+                        for object in objects {
+                            let resource = object as! Resource
+//                            if resource.county?.objectId == county.objectId {
+//                                resources.append(resource)
+                                self.allResources.append(resource)
+//                            }
+                        }
+//                        let countyAndResources = CountyAndResources(county: county, resources: resources)
+//                        data.append(countyAndResources)
+//                    }
+                callback()
+                case .failure(error: let error):
+                    print(error)
+                }
+            }
+        } catch {
+            print(error)
+        }
+    }
+    
+    func orderResourceData() {
+        resourceData = []
+//        DispatchQueue.global().async {
+            for county in self.counties {
+                var resources: [Resource] = []
+                for resource in self.allResources {
+                    if resource.county?.objectId == county.objectId {
+                        resources.append(resource)
+                    }
+                }
+                let countyAndResources = CountyAndResources(county: county, resources: resources)
+                self.resourceData.append(countyAndResources)
+            }
+//        }
     }
 }

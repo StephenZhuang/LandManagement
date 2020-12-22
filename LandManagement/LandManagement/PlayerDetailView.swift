@@ -128,6 +128,9 @@ struct PlayerDetailView: View {
                     ResourceRow(resource: resource) {
                         self.orderData()
                         self.resources.remove(resource)
+                        _ = LCObject.fetch(DataStore.shared.allResources) {_ in
+                            dataStore.orderResourceData()
+                        }
                     }
                 }
             }

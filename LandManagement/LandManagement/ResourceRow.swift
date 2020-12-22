@@ -82,10 +82,18 @@ struct ResourceRow: View {
                 case .success:
                     resource.owner = nil
                     resource.isIllegal = LCBool(false)
-                    _ = resource.save()
-                    if callback != nil {
-                        callback!()
-                        _ = LCObject.fetch(DataStore.shared.players)
+                    _ = resource.save { result in
+                        switch result {
+                        case .success:
+                            if callback != nil {
+                                callback!()
+                                //                        _ = LCObject.fetch(DataStore.shared.players)
+//                                _ = LCObject.fetch(DataStore.shared.players, keys: ["copperProduction", "league", "team"])
+                            }
+                            break
+                        case .failure(error: let error):
+                            print(error)
+                        }
                     }
                     break
                 case .failure(error: let error):
